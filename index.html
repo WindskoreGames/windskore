@@ -146,7 +146,7 @@
         <a href="https://docs.google.com/document/d/1S52kEOqoF9yUc-7IgmE3uKT3EyfJ0JaX5Tgnfqp4qU0/edit?usp=sharing" class="text-gray-400 hover:text-white transition-colors">Terms Of Service</a>
         <a href="https://docs.google.com/document/d/1QdNGmLffcUuZu21qLqdQPWm4gd0VK0EbiEBbaqy8BbU/edit?usp=sharing" class="text-gray-400 hover:text-white transition-colors">Sekretesspolicy</a>
       </div>
-      <p class="text-gray-500 mt-6">© 2025 Windskore. Alla rättigheter förbehållna.</p>
+      <p class="text-gray-500 mt-6"> ™2025 Windskore. Alla rättigheter förbehållna.</p>
     </div>
   </footer>
 
@@ -181,5 +181,24 @@
 </script>
 <noscript><a href="https://www.livechat.com/chat-with/19208522/" rel="nofollow">Chat with us</a>, powered by <a href="https://www.livechat.com/?welcome" rel="noopener nofollow" target="_blank">LiveChat</a></noscript>
 <!-- End of LiveChat code -->
+<script>
+  const visitedBefore = localStorage.getItem("visited_before");
+  const popupShown = localStorage.getItem("popup_shown");
+
+  if (visitedBefore && !popupShown) {
+    // Användaren har varit här tidigare men inte sett popupen
+    document.getElementById("popup").style.display = "block";
+    document.getElementById("popup-overlay").style.display = "block";
+
+    document.getElementById("close-popup").addEventListener("click", function() {
+      document.getElementById("popup").style.display = "none";
+      document.getElementById("popup-overlay").style.display = "none";
+      localStorage.setItem("popup_shown", "true");
+    });
+  } else {
+    // Första gången – spara att användaren har besökt
+    localStorage.setItem("visited_before", "true");
+  }
+</script>
 </body>
 </html>
