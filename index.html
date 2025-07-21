@@ -172,25 +172,6 @@
     document.querySelectorAll('.animate-fade-in').forEach(el => observer.observe(el));
   </script>
 <script>
-  const visitedBefore = localStorage.getItem("visited_before");
-  const popupShown = localStorage.getItem("popup_shown");
-
-  if (visitedBefore && !popupShown) {
-    // Användaren har varit här tidigare men inte sett popupen
-    document.getElementById("popup").style.display = "block";
-    document.getElementById("popup-overlay").style.display = "block";
-
-    document.getElementById("close-popup").addEventListener("click", function() {
-      document.getElementById("popup").style.display = "none";
-      document.getElementById("popup-overlay").style.display = "none";
-      localStorage.setItem("popup_shown", "true");
-    });
-  } else {
-    // Första gången – spara att användaren har besökt
-    localStorage.setItem("visited_before", "true");
-  }
-</script>
-<script 
 <!--Start of Tawk.to Script-->
 <script type="text/javascript">
 var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
