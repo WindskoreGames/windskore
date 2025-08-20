@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kontakta Oss - Windskore</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-in {
+      animation: fadeIn 0.8s ease-out forwards;
+    }
+    .hover-scale {
+      transition: transform 0.3s ease;
+    }
+    .hover-scale:hover {
+      transform: scale(1.05);
+    }
+    .bg-gradient-hero {
+      background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+    }
+    .card-shadow {
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    }
+  </style>
+</head>
+<body class="bg-gray-50 font-sans antialiased">
+  <!-- Navigation -->
+  <nav class="bg-white shadow-lg fixed w-full z-10">
+    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+      <h1 class="text-3xl font-extrabold text-blue-600">Windskore</h1>
+      <div class="space-x-6 text-lg font-medium">
+        <a href="index.html#home" class="text-gray-700 hover:text-blue-600 transition-colors">Startsida</a>
+        <a href="index.html#games" class="text-gray-700 hover:text-blue-600 transition-colors">Spel</a>
+        <a href="index.html#jobs" class="text-gray-700 hover:text-blue-600 transition-colors">Jobb</a>
+        <a href="contact.html" class="text-gray-700 hover:text-blue-600 transition-colors">Kontakta Oss</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Contact Section -->
+  <section class="py-20 bg-gray-50 pt-24">
+    <div class="container mx-auto px-4">
+      <h2 class="text-4xl font-bold text-center mb-12 animate-fade-in">Kontakta Oss</h2>
+      <p class="text-xl text-gray-600 text-center mb-12 max-w-3xl mx-auto">Har du frågor eller behöver hjälp? Fyll i formuläret nedan eller kontakta oss på <a href="mailto:kontakt.windskore@gmail.com" class="text-blue-600 hover:underline">kontakt.windskore@gmail.com</a>.</p>
+
+      <!-- Games Overview -->
+      <h3 class="text-3xl font-semibold text-center mb-8 animate-fade-in">Våra Spel</h3>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+        <!-- Spel 1 -->
+        <div class="bg-white rounded-xl overflow-hidden card-shadow hover-scale animate-fade-in">
+          <div class="h-48 bg-gradient-to-r from-blue-500 to-indigo-500"></div>
+          <div class="p-6 text-center">
+            <h3 class="text-2xl font-semibold mb-3">Gordon Game 1</h3>
+          </div>
+        </div>
+        <!-- Spel 2 -->
+        <div class="bg-white rounded-xl overflow-hidden card-shadow hover-scale animate-fade-in" style="animation-delay: 0.2s;">
+          <div class="h-48 bg-gradient-to-r from-red-500 to-orange-500"></div>
+          <div class="p-6 text-center">
+            <h3 class="text-2xl font-semibold mb-3">Gordon Game 2</h3>
+          </div>
+        </div>
+        <!-- Spel 3 -->
+        <div class="bg-white rounded-xl overflow-hidden card-shadow hover-scale animate-fade-in" style="animation-delay: 0.4s;">
+          <div class="h-48 bg-gradient-to-r from-green-500 to-teal-500"></div>
+          <div class="p-6 text-center">
+            <h3 class="text-2xl font-semibold mb-3">Gordon game 3</h3>
+          </div>
+        </div>
+        <!-- Spel 4 -->
+        <div class="bg-white rounded-xl overflow-hidden card-shadow hover-scale animate-fade-in" style="animation-delay: 0.6s;">
+          <div class="h-48 bg-gradient-to-r from-purple-500 to-pink-500"></div>
+          <div class="p-6 text-center">
+            <h3 class="text-2xl font-semibold mb-3">Gordon game 4</h3>
+          </div>
+        </div>
+        <!-- Spel 5 -->
+        <div class="bg-white rounded-xl overflow-hidden card-shadow hover-scale animate-fade-in" style="animation-delay: 0.8s;">
+          <div class="h-48 bg-gradient-to-r from-yellow-500 to-red-400"></div>
+          <div class="p-6 text-center">
+            <h3 class="text-2xl font-semibold mb-3">Gordon 3D Extreme Computer Edition</h3>
+          </div>
+        </div>
+        <!-- Spel 6 -->
+        <div class="bg-white rounded-xl overflow-hidden card-shadow hover-scale animate-fade-in" style="animation-delay: 1s;">
+          <div class="h-48 bg-gradient-to-r from-gray-500 to-gray-700"></div>
+          <div class="p-6 text-center">
+            <h3 class="text-2xl font-semibold mb-3">Gordon 3D Extreme Computer Edition HD</h3>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Form -->
+      <div class="bg-white rounded-xl p-8 card-shadow max-w-2xl mx-auto animate-fade-in">
+        <h3 class="text-2xl font-semibold mb-6 text-center">Skicka oss ett meddelande</h3>
+        <div class="space-y-6">
+          <div>
+            <label for="name" class="block text-gray-700 font-medium mb-2">Namn</label>
+            <input type="text" id="name" class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600" required>
+          </div>
+          <div>
+            <label for="email" class="block text-gray-700 font-medium mb-2">E-post</label>
+            <input type="email" id="email" class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600" required>
+          </div>
+          <div>
+            <label for="help" class="block text-gray-700 font-medium mb-2">Vad behöver du hjälp med?</label>
+            <select id="help" class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600" required>
+              <option value="" disabled selected>Välj ett alternativ</option>
+              <option value="Gordon Game 1">Gordon Game 1</option>
+              <option value="Gordon Game 2">Gordon Game 2</option>
+              <option value="Gordon game 3">Gordon game 3</option>
+              <option value="Gordon game 4">Gordon game 4</option>
+              <option value="Gordon 3D Extreme Computer Edition">Gordon 3D Extreme Computer Edition</option>
+              <option value="Gordon 3D Extreme Computer Edition HD">Gordon 3D Extreme Computer Edition HD</option>
+              <option value="Other">Annat</option>
+            </select>
+          </div>
+          <div>
+            <label for="image" class="block text-gray-700 font-medium mb-2">Bilduppladdning (valfritt)</label>
+            <input type="file" id="image" accept="image/*" class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600">
+          </div>
+          <button id="submitForm" class="w-full bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700 transition-colors font-semibold">Skicka</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-8">
+    <div class="container mx-auto px-4 text-center">
+      <h3 class="text-2xl font-bold mb-4">Windskore</h3>
+      <p class="text-gray-400 mb-4">Skapar dåliga spelupplevelser.</p>
+      <div class="space-x-4">
+        <a href="https://docs.google.com/document/d/1S52kEOqoF9yUc-7IgmE3uKT3EyfJ0JaX5Tgnfqp4qU0/edit?usp=sharing" class="text-gray-400 hover:text-white transition-colors">Terms Of Service</a>
+        <a href="https://docs.google.com/document/d/1QdNGmLffcUuZu21qLqdQPWm4gd0VK0EbiEBbaqy8BbU/edit?usp=sharing" class="text-gray-400 hover:text-white transition-colors">Sekretesspolicy</a>
+      </div>
+      <p class="text-gray-400 mt-4">kontakt.windskore@gmail.com</p>
+      <p class="text-gray-500 mt-6">©2025 Windskore.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+
+    // Trigger animations on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-fade-in');
+        }
+      });
+    });
+    document.querySelectorAll('.animate-fade-in').forEach(el => observer.observe(el));
+
+    // Form submission handling
+    document.getElementById('submitForm').addEventListener('click', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const help = document.getElementById('help').value;
+      const image = document.getElementById('image').files[0];
+
+      if (!name || !email || !help) {
+        alert('Vänligen fyll i alla obligatoriska fält.');
+        return;
+      }
+
+      const formData = {
+        name,
+        email,
+        help,
+        image: image ? image.name : null,
+        timestamp: new Date().toISOString()
+      };
+
+      // Simulate saving to a JSON file (client-side)
+      let submissions = JSON.parse(localStorage.getItem('contactSubmissions') || '[]');
+      submissions.push(formData);
+      localStorage.setItem('contactSubmissions', JSON.stringify(submissions));
+
+      // Optional: Send email notification (requires backend, so just logging for now)
+      console.log('Formulärdata:', formData);
+
+      alert('Tack för ditt meddelande! Vi kommer att kontakta dig snart.');
+      document.getElementById('name').value = '';
+      document.getElementById('email').value = '';
+      document.getElementById('help').value = '';
+      document.getElementById('image').value = '';
+    });
+  </script>
+
+  <!-- Start of Tawk.to Script -->
+  <script type="text/javascript">
+    var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+    (function() {
+      var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+      s1.async = true;
+      s1.src = 'https://embed.tawk.to/6800b82fc5e333190b5b7845/1ip1cuv4g';
+
+      s1.charset = 'UTF-8';
+      s1.setAttribute('crossorigin', '*');
+      s0.parentNode.insertBefore(s1, s0);
+    })();
+  </script>
+  <!-- End of Tawk.to Script -->
+</body>
+</html>
