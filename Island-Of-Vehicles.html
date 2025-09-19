@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Island Of Vehicles</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in { animation: fadeIn 0.8s ease-out forwards; }
+        .hover-scale { transition: transform 0.3s ease; }
+        .hover-scale:hover { transform: scale(1.05); }
+        .bg-gradient-hero { background: linear-gradient(135deg, #1e3a8a, #3b82f6); }
+        .card-shadow { box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans antialiased">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full z-10">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <h1 class="text-3xl font-extrabold text-blue-600">Windskore</h1>
+            <div class="space-x-6 text-lg font-medium">
+                <a href="index.html#home" class="text-gray-700 hover:text-blue-600 transition-colors">Startsida</a>
+                <a href="index.html#games" class="text-gray-700 hover:text-blue-600 transition-colors">Spel</a>
+                <a href="index.html#jobs" class="text-gray-700 hover:text-blue-600 transition-colors">Jobb</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Banner -->
+    <section class="min-h-screen flex items-center justify-center bg-gradient-hero text-gray-100 pt-16">
+        <div class="container mx-auto text-center px-4 animate-fade-in">
+            <h2 class="text-5xl md:text-6xl font-extrabold mb-6 leading-tight">Island Of Vehicles</h2>
+            <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">Upptäck en värld av äventyr och fordon i detta episka open-world-spel!</p>
+            <a href="#notify" class="inline-block bg-white text-blue-600 font-semibold px-8 py-4 rounded-full hover:bg-blue-100 transition-colors text-lg">Få Notis Vid Release</a>
+        </div>
+    </section>
+
+    <!-- Trailer Section -->
+    <section id="trailer" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12 animate-fade-in">Trailer</h2>
+            <div class="flex justify-center">
+                <div class="w-full max-w-4xl">
+                    <iframe class="w-full h-96 rounded-xl card-shadow" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Island Of Vehicles Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Game Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12 animate-fade-in">Om Island Of Vehicles</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="animate-fade-in">
+                    <h3 class="text-2xl font-semibold mb-4">Utforska en Öppen Värld</h3>
+                    <p class="text-gray-600 mb-4">Island Of Vehicles tar dig till en dynamisk ö-värld fylld med äventyr. Kör bilar, båtar och till och med flygplan medan du utforskar varierade miljöer, från tropiska stränder till bergiga terränger.</p>
+                </div>
+                <div class="animate-fade-in" style="animation-delay: 0.2s;">
+                    <h3 class="text-2xl font-semibold mb-4">Spännande Uppdrag</h3>
+                    <p class="text-gray-600 mb-4">Delta i uppdrag som testar dina körfärdigheter och strategiska tänkande. Från höghastighetsracing till smugglingsuppdrag, varje ögonblick är fyllt av spänning.</p>
+                </div>
+                <div class="animate-fade-in" style="animation-delay: 0.4s;">
+                    <h3 class="text-2xl font-semibold mb-4">Anpassa Dina Fordon</h3>
+                    <p class="text-gray-600 mb-4">Bygg och modifiera dina fordon för att passa din spelstil. Välj mellan hundratals delar och skapa det ultimata fordonet för att dominera ön.</p>
+                </div>
+                <div class="animate-fade-in" style="animation-delay: 0.6s;">
+                    <h3 class="text-2xl font-semibold mb-4">Multiplayer</h3>
+                    <p class="text-gray-600 mb-4">Spela med vänner eller tävla mot andra spelare online i en sömlös multiplayer-upplevelse. Samarbeta eller tävla för att bli öns mästare!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Screenshots Section -->
+    <section id="screenshots" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12 animate-fade-in">Skärmdumpar</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-xl overflow-hidden card-shadow hover-scale animate-fade-in">
+                    <div class="h-48 bg-gradient-to-r from-blue-500 to-indigo-500"></div>
+                    <div class="p-6">
+                        <p class="text-gray-600">Tropisk strandkörning</p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl overflow-hidden card-shadow hover-scale animate-fade-in" style="animation-delay: 0.2s;">
+                    <div class="h-48 bg-gradient-to-r from-blue-500 to-indigo-500"></div>
+                    <div class="p-6">
+                        <p class="text-gray-600">Bergsrace</p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl overflow-hidden card-shadow hover-scale animate-fade-in" style="animation-delay: 0.4s;">
+                    <div class="h-48 bg-gradient-to-r from-blue-500 to-indigo-500"></div>
+                    <div class="p-6">
+                        <p class="text-gray-600">Flyg över ön</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- System Requirements Section -->
+    <section id="requirements" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12 animate-fade-in">Systemkrav</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-gray-50 rounded-xl p-8 card-shadow animate-fade-in">
+                    <h3 class="text-2xl font-semibold mb-4">Minimum</h3>
+                    <ul class="text-gray-600 list-disc pl-5">
+                        <li>OS: Windows 10 64-bit</li>
+                        <li>Processor: Intel Core i5-4460 eller AMD FX-6300</li>
+                        <li>Minne: 8 GB RAM</li>
+                        <li>Grafik: NVIDIA GeForce GTX 760 eller AMD Radeon R7 260x</li>
+                        <li>Lagring: 50 GB ledigt utrymme</li>
+                    </ul>
+                </div>
+                <div class="bg-gray-50 rounded-xl p-8 card-shadow animate-fade-in" style="animation-delay: 0.2s;">
+                    <h3 class="text-2xl font-semibold mb-4">Rekommenderat</h3>
+                    <ul class="text-gray-600 list-disc pl-5">
+                        <li>OS: Windows 11 64-bit</li>
+                        <li>Processor: Intel Core i7-9700 eller AMD Ryzen 5 5600X</li>
+                        <li>Minne: 16 GB RAM</li>
+                        <li>Grafik: NVIDIA GeForce RTX 2060 eller AMD Radeon RX 6700 XT</li>
+                        <li>Lagring: 50 GB ledigt utrymme (SSD rekommenderas)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Notification Form Section -->
+    <section id="notify" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12 animate-fade-in">Få Notis Vid Release</h2>
+            <div class="flex justify-center">
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScOFfR_pQx02xrWZfXvqV8wx5b9XTkl_1oYUUYPjd2nMWCRFg/viewform?embedded=true" width="640" height="897" frameborder="0" marginheight="0" marginwidth="0">Läser in …</iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="container mx-auto px-4 text-center">
+            <h3 class="text-2xl font-bold mb-4">Windskore</h3>
+            <p class="text-gray-400 mb-4">Skapar dåliga spelupplevelser.</p>
+            <div class="space-x-4">
+                <a href="https://docs.google.com/document/d/1S52kEOqoF9yUc-7IgmE3uKT3EyfJ0JaX5Tgnfqp4qU0/edit?usp=sharing" class="text-gray-400 hover:text-white transition-colors">Terms Of Service</a>
+                <a href="https://docs.google.com/document/d/1QdNGmLffcUuZu21qLqdQPWm4gd0VK0EbiEBbaqy8BbU/edit?usp=sharing" class="text-gray-400 hover:text-white transition-colors">Sekretesspolicy</a>
+            </div>
+            <p class="text-gray-400 mt-4">Kontakt.windskore@gmail.com</p>
+            <p class="text-gray-500 mt-6">©2025 Windskore.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Trigger animations on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fade-in');
+                }
+            });
+        });
+        document.querySelectorAll('.animate-fade-in').forEach(el => observer.observe(el));
+    </script>
+
+    <!-- Start of Tawk.to Script -->
+    <script type="text/javascript">
+        var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+        (function() {
+            var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+            s1.async = true;
+            s1.src = 'https://embed.tawk.to/6800b82fc5e333190b5b7845/1ip1cuv4g';
+            s1.charset = 'UTF-8';
+            s1.setAttribute('crossorigin', '*');
+            s0.parentNode.insertBefore(s1, s0);
+        })();
+    </script>
+    <!-- End of Tawk.to Script -->
+</body>
+</html>
