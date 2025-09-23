@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Windskore - Terms Of Service</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in { animation: fadeIn 0.8s ease-out forwards; }
+        .hover-scale { transition: transform 0.3s ease; }
+        .hover-scale:hover { transform: scale(1.05); }
+        .bg-gradient-hero { background: linear-gradient(135deg, #1e3a8a, #3b82f6); }
+        .card-shadow { box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans antialiased">
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full z-10">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <h1 class="text-3xl font-extrabold text-blue-600">Windskore</h1>
+            <div class="space-x-6 text-lg font-medium">
+                <a href="index.html" class="text-gray-700 hover:text-blue-600 transition-colors">Startsida</a>
+                <a href="Island-Of-Vehicles.html" class="text-gray-700 hover:text-blue-600 transition-colors">Spel</a>
+                <a href="#tos" class="text-gray-700 hover:text-blue-600 transition-colors">ToS</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Terms Of Service Section -->
+    <section id="tos" class="min-h-screen flex items-start justify-center pt-24 pb-12">
+        <div class="container mx-auto px-4 max-w-4xl animate-fade-in">
+            <h2 class="text-4xl font-bold text-center mb-8 text-blue-600">📄 Terms of Service – Windskore</h2>
+            <p class="text-gray-700 mb-6">Gäller från och med: <strong>2025-06-23</strong></p>
+            <p class="text-gray-700 mb-6">Välkommen till Windskore! Genom att använda våra tjänster eller besöka vår webbplats godkänner du dessa användarvillkor. Läs dem noggrant.</p>
+            
+            <h3 class="text-2xl font-semibold mb-4">1. Tjänstens användning</h3>
+            <p class="text-gray-700 mb-2">Du får endast använda Windskore för lagliga syften och i enlighet med dessa villkor. Du får inte:</p>
+            <ul class="list-disc list-inside text-gray-700 mb-4">
+                <li>Bryta mot några lagar eller regler.</li>
+                <li>Skicka eller publicera skadligt, hotande eller stötande innehåll.</li>
+                <li>Försöka hacka, störa eller manipulera vår plattform.</li>
+            </ul>
+            <p class="text-gray-700 mb-6">Alla är välkomna att besöka och använda tjänsten, men beställningar får endast göras av personer med personliga kontakter till administratören (vänner eller familj). Beställningar från övriga användare kommer att avbrytas utan transaktion eller leverans.</p>
+            
+            <h3 class="text-2xl font-semibold mb-4">2. Konton och säkerhet</h3>
+            <p class="text-gray-700 mb-2">För vissa funktioner krävs att du skapar ett konto. Du är ansvarig för:</p>
+            <ul class="list-disc list-inside text-gray-700 mb-4">
+                <li>Att hålla ditt lösenord säkert.</li>
+                <li>All aktivitet som sker på ditt konto.</li>
+            </ul>
+            <p class="text-gray-700 mb-6">Om vi misstänker att du bryter mot dessa villkor har vi rätt att stänga av ditt konto tillfälligt eller permanent.</p>
+            
+            <h3 class="text-2xl font-semibold mb-4">3. Innehåll</h3>
+            <p class="text-gray-700 mb-6">Allt du publicerar (t.ex. kommentarer, chattmeddelanden, bilder) måste följa våra regler. Du ger Windskore rätten att visa och använda detta innehåll inom vår plattform.</p>
+            
+            <h3 class="text-2xl font-semibold mb-4">4. Ansvarsbegränsning</h3>
+            <p class="text-gray-700 mb-6">Vi strävar efter att hålla Windskore tillgängligt och säkert, men vi garanterar inte att allt alltid fungerar felfritt. Vi tar inget ansvar för:</p>
+            <ul class="list-disc list-inside text-gray-700 mb-4">
+                <li>Eventuella förluster av data.</li>
+                <li>Tekniska problem eller buggar.</li>
+                <li>Användares beteende på plattformen.</li>
+            </ul>
+            
+            <h3 class="text-2xl font-semibold mb-4">5. Ändringar i villkoren</h3>
+            <p class="text-gray-700 mb-6">Det är användarens ansvar att regelbundet kontrollera dessa villkor för uppdateringar.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8 mt-12">
+        <div class="container mx-auto px-4 text-center">
+            <h3 class="text-2xl font-bold mb-4">Windskore</h3>
+            <p class="text-gray-400 mb-4">Skapar dåliga spelupplevelser.</p>
+            <div class="space-x-4">
+                <a href="tos.html" class="text-gray-400 hover:text-white transition-colors">Terms Of Service</a>
+                <a href="privacy.html" class="text-gray-400 hover:text-white transition-colors">Sekretesspolicy</a>
+            </div>
+            <p class="text-gray-400 mt-4">support@windskore.se</p>
+            <p class="text-gray-500 mt-6">©2025 Windskore.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Trigger animations on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fade-in');
+                }
+            });
+        });
+        document.querySelectorAll('.animate-fade-in').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
