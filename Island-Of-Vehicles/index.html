@@ -37,21 +37,32 @@
         </div>
     </section>
 
-    <!-- CountDown Section -->
+    <!-- Download Section -->
 <a href="Island-Of-Vehicles-GameTest1.zip" download>
-    <button>Ladda ner Island Of Vehicles GameTest</button>
+    <button class="download-btn">Ladda ner Island Of Vehicles GameTest</button>
 </a>
 
-<script>
-(function(d, s, id) { 
-    var js, pjs = d.getElementsByTagName(s)[0]; 
-    if (d.getElementById(id)) return; 
-    js = d.createElement(s); 
-    js.id = id; 
-    js.src = "//www.tickcounter.com/static/js/loader.js"; 
-    pjs.parentNode.insertBefore(js, pjs); 
-}(document, "script", "tickcounter-sdk"));
-</script>
+<style>
+.download-btn {
+    background-color: #1E90FF; /* Blå bakgrund */
+    color: white; /* Vit text */
+    font-size: 18px; /* Större text */
+    padding: 15px 30px; /* Större knapp */
+    border: none; /* Ingen kantlinje */
+    border-radius: 10px; /* Rundade hörn */
+    cursor: pointer; /* Visa pekare vid hover */
+    transition: background-color 0.3s, transform 0.2s; /* Liten animation */
+}
+
+.download-btn:hover {
+    background-color: #007ACC; /* Mörkare blå vid hover */
+    transform: scale(1.05); /* Liten zoom-effekt */
+}
+
+.download-btn:active {
+    transform: scale(0.98); /* Liten “tryck”-effekt */
+}
+</style>
 
     <!-- Trailer Section -->
 <section id="trailer" class="py-20 bg-gray-50">
@@ -206,6 +217,7 @@
     <!-- End of Tawk.to Script -->
 </body>
 </html>
+
 
 
 
