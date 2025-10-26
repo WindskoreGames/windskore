@@ -1,24 +1,81 @@
 <!DOCTYPE html>
 <html lang="sv">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Island Of Vehicles</title>
-    <link rel="icon" type="image/png" href="favicon.png">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .animate-fade-in { animation: fadeIn 0.8s ease-out forwards; }
-        .hover-scale { transition: transform 0.3s ease; }
-        .hover-scale:hover { transform: scale(1.05); }
-        .bg-gradient-hero { background: linear-gradient(135deg, #1e3a8a, #3b82f6); }
-        .card-shadow { box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Island Of Vehicles</title>
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-in { animation: fadeIn 0.8s ease-out forwards; }
+    .hover-scale { transition: transform 0.3s ease; }
+    .hover-scale:hover { transform: scale(1.05); }
+    .bg-gradient-hero {
+      background: linear-gradient(135deg, #ff6b00, #2b1a0f); /* Updated to orange gradient */
+    }
+    .card-shadow {
+      box-shadow: 0 10px 20px rgba(255, 107, 0, 0.3); /* Orange-tinted shadow */
+    }
+    body {
+      background-color: #2b1a0f; /* Dark orange-brown */
+      color: #f3e3c3; /* Warm off-white for text */
+    }
+    nav, footer {
+      background-color: #3b1f1f; /* Slightly lighter orange-tinted dark shade */
+    }
+    h1, h2, h3 {
+      color: #ff6b00; /* Keep existing orange */
+    }
+    a {
+      color: #ff6b00; /* Keep existing orange */
+    }
+    a:hover {
+      color: #ffa94d; /* Keep existing lighter orange */
+    }
+    .bg-white {
+      background-color: #4b3b2b; /* Orange-tinted off-white */
+    }
+    .bg-gray-50 {
+      background-color: #3b2b1a; /* Light orange-brown */
+    }
+    .text-gray-700 {
+      color: #f3e3c3; /* Warm off-white */
+    }
+    .text-gray-600 {
+      color: #e0d0b0; /* Light beige */
+    }
+    .text-gray-400 {
+      color: #d0b090; /* Slightly darker beige */
+    }
+    .text-gray-500 {
+      color: #b09070; /* Darker beige for contrast */
+    }
+    .text-blue-600 {
+      color: #ff6b00; /* Keep orange */
+    }
+    .hover\:text-blue-600:hover {
+      color: #ffa94d; /* Keep lighter orange */
+    }
+    .hover\:bg-blue-100:hover {
+      background-color: #4b2b1a; /* Darker orange-brown for hover */
+    }
+    .bg-blue-600 {
+      background-color: #ff6b00; /* Keep orange */
+    }
+    .hover\:bg-blue-700:hover {
+      background-color: #ffa94d; /* Keep lighter orange */
+    }
+    .focus\:ring-blue-500:focus {
+      ring-color: #ff6b00; /* Keep orange */
+    }
+  </style>
 </head>
 <body class="bg-gray-50 font-sans antialiased">
+
     <!-- Navigation -->
     <nav class="bg-white shadow-lg fixed w-full z-10">
         <div class="container mx-auto px-4 py-4 flex justify-between items-center">
@@ -38,27 +95,26 @@
         </div>
     </section>
 
-<!-- Trailer Section -->
-<section id="trailer" class="py-20 bg-gray-50">
-  <div class="container mx-auto px-4">
-    <h2 class="text-4xl font-bold text-center mb-12 animate-fade-in">Trailer 1</h2>
-    <div class="flex justify-center items-center" style="height: 400px; width: 100%;">
-      <!-- Vimeo Embed -->
-      <div style="padding:56.25% 0 0 0;position:relative;width:100%;">
-        <iframe 
-          src="https://player.vimeo.com/video/1130266443?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
-          frameborder="0" 
-          allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
-          referrerpolicy="strict-origin-when-cross-origin" 
-          style="position:absolute;top:0;left:0;width:100%;height:100%;" 
-          title="Island Of Vehicles Trailer 1">
-        </iframe>
-      </div>
-      <script src="https://player.vimeo.com/api/player.js"></script>
-    </div>
-  </div>
-</section>
-
+    <!-- Trailer Section -->
+    <section id="trailer" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12 animate-fade-in">Trailer 1</h2>
+            <div class="flex justify-center items-center" style="height: 400px; width: 100%;">
+                <!-- Vimeo Embed -->
+                <div style="padding:56.25% 0 0 0;position:relative;width:100%;">
+                    <iframe 
+                        src="https://player.vimeo.com/video/1130266443?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
+                        frameborder="0" 
+                        allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
+                        referrerpolicy="strict-origin-when-cross-origin" 
+                        style="position:absolute;top:0;left:0;width:100%;height:100%;" 
+                        title="Island Of Vehicles Trailer 1">
+                    </iframe>
+                </div>
+                <script src="https://player.vimeo.com/api/player.js"></script>
+            </div>
+        </div>
+    </section>
 
     <!-- About Game Section -->
     <section id="about" class="py-20 bg-white">
@@ -72,7 +128,6 @@
                 <div class="animate-fade-in" style="animation-delay: 0.2s;">
                     <h3 class="text-2xl font-semibold mb-4">Spännande Story</h3>
                     <p class="text-gray-600 mb-4">Delta i en spännande berättelse där du måste stoppa förstörandet av staden</p>
-                </div>
                 </div>
             </div>
         </div>
@@ -108,92 +163,67 @@
     </section>
 
     <!-- Notification Form Section -->
-<!-- Notification Form Section -->
-<section id="notify" class="py-20 bg-gray-50">
-    <div class="container mx-auto px-4">
-        <h2 class="text-4xl font-bold text-center mb-12 animate-fade-in">Få Notis Vid Release</h2>
-        <div class="flex justify-center">
-            <form action="https://formspree.io/f/xwprkznr" method="POST" class="w-full max-w-lg bg-white p-8 rounded-xl card-shadow space-y-6 animate-fade-in">
-                
-                <!-- För- och Efternamn -->
-                <div>
-                    <label for="fullname" class="block text-gray-700 font-medium mb-2">För- och Efternamn*</label>
-                    <input type="text" id="fullname" name="fullname" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-                </div>
-
-                <!-- Email -->
-                <div>
-                    <label for="email" class="block text-gray-700 font-medium mb-2">Email*</label>
-                    <input type="email" id="email" name="email" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-                </div>
-
-                <!-- Nyheter -->
-                <div class="flex items-center space-x-2">
-                    <input type="checkbox" id="other_news" name="other_news" class="h-4 w-4">
-                    <label for="other_news" class="text-gray-700">Jag vill ha nyheter om andra saker än bara detta spel</label>
-                </div>
-
-                <!-- Skicka-knapp -->
-                <button type="submit" class="w-full bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors">Skicka</button>
-            </form>
+    <section id="notify" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12 animate-fade-in">Få Notis Vid Release</h2>
+            <div class="flex justify-center">
+                <form action="https://formspree.io/f/xwprkznr" method="POST" class="w-full max-w-lg bg-white p-8 rounded-xl card-shadow space-y-6 animate-fade-in">
+                    <div>
+                        <label for="fullname" class="block text-gray-700 font-medium mb-2">För- och Efternamn*</label>
+                        <input type="text" id="fullname" name="fullname" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    <div>
+                        <label for="email" class="block text-gray-700 font-medium mb-2">Email*</label>
+                        <input type="email" id="email" name="email" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <input type="checkbox" id="other_news" name="other_news" class="h-4 w-4">
+                        <label for="other_news" class="text-gray-700">Jag vill ha nyheter om andra saker än bara detta spel</label>
+                    </div>
+                    <button type="submit" class="w-full bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors">Skicka</button>
+                </form>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- Pre Order -->
-<section id="notify" class="py-20 bg-gray-50">
-    <div class="container mx-auto px-4">
-        <h2 class="text-4xl font-bold text-center mb-6 animate-fade-in">
-🎮 Förbeställ Island Of Vehicles NU – spara 50 kr!<br>
-Ordinarie pris: 249 kr – Erbjudandepris: 199 kr<br>
-⚡ Erbjudandet gäller till 1 november 2025
-        </h2>
-
-        <!-- Info-text -->
-        <p class="text-center text-gray-700 mb-12">
-Hur det funkar: Genom att skicka in detta formulär vet Windskore dina uppgifter och kan skicka ett mail till dig med instruktioner om hur du ska betala.
-        </p>
-
-        <div class="flex justify-center">
-            <form action="https://formspree.io/f/xwprkznr" method="POST" class="w-full max-w-lg bg-white p-8 rounded-xl card-shadow space-y-6 animate-fade-in">
-                
-                <!-- För- och Efternamn -->
-                <div>
-                    <label for="fullname" class="block text-gray-700 font-medium mb-2">För- och Efternamn*</label>
-                    <input type="text" id="fullname" name="fullname" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-                </div>
-
-                <!-- Email -->
-                <div>
-                    <label for="email" class="block text-gray-700 font-medium mb-2">Email*</label>
-                    <input type="email" id="email" name="email" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-                </div>
-
-                <!-- Telefonnummer -->
-                <div>
-                    <label for="phone" class="block text-gray-700 font-medium mb-2">Telefonnummer*</label>
-                    <input type="tel" id="phone" name="phone" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-                </div>
-
-                <!-- Adress -->
-                <div>
-                    <label for="address" class="block text-gray-700 font-medium mb-2">Adress (valfritt)</label>
-                    <input type="text" id="address" name="address" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-                </div>
-
-                <!-- ToS And Sec -->
-                <div class="flex items-center space-x-2">
-                    <input type="checkbox" id="Accept Terms Of Service and Sekretesspolicy" name="Accept Terms Of Service and Sekretesspolicy" class="h-4 w-4">
-                    <label for="Accept Terms Of Service and Sekretesspolicy" class="text-gray-700">Jag godkänner Windskores Terms Of Service and Sekretesspolicy</label>
-                </div>
-
-                <!-- Skicka-knapp -->
-                <button type="submit" class="w-full bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors">Skicka</button>
-            </form>
+    <!-- Pre Order -->
+    <section id="preorder" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-6 animate-fade-in">
+                🎮 Förbeställ Island Of Vehicles NU – spara 50 kr!<br>
+                Ordinarie pris: 249 kr – Erbjudandepris: 199 kr<br>
+                ⚡ Erbjudandet gäller till 1 november 2025
+            </h2>
+            <p class="text-center text-gray-700 mb-12">
+                Hur det funkar: Genom att skicka in detta formulär vet Windskore dina uppgifter och kan skicka ett mail till dig med instruktioner om hur du ska betala.
+            </p>
+            <div class="flex justify-center">
+                <form action="https://formspree.io/f/xwprkznr" method="POST" class="w-full max-w-lg bg-white p-8 rounded-xl card-shadow space-y-6 animate-fade-in">
+                    <div>
+                        <label for="fullname" class="block text-gray-700 font-medium mb-2">För- och Efternamn*</label>
+                        <input type="text" id="fullname" name="fullname" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    <div>
+                        <label for="email" class="block text-gray-700 font-medium mb-2">Email*</label>
+                        <input type="email" id="email" name="email" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    <div>
+                        <label for="phone" class="block text-gray-700 font-medium mb-2">Telefonnummer*</label>
+                        <input type="tel" id="phone" name="phone" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    <div>
+                        <label for="address" class="block text-gray-700 font-medium mb-2">Adress (valfritt)</label>
+                        <input type="text" id="address" name="address" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <input type="checkbox" id="Accept Terms Of Service and Sekretesspolicy" name="Accept Terms Of Service and Sekretesspolicy" class="h-4 w-4">
+                        <label for="Accept Terms Of Service and Sekretesspolicy" class="text-gray-700">Jag godkänner Windskores Terms Of Service and Sekretesspolicy</label>
+                    </div>
+                    <button type="submit" class="w-full bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors">Skicka</button>
+                </form>
+            </div>
         </div>
-    </div>
-</section>
-
+    </section>
 
     <!-- Footer -->
     <footer class="bg-gray-900 text-white py-8">
@@ -244,5 +274,6 @@ Hur det funkar: Genom att skicka in detta formulär vet Windskore dina uppgifter
         })();
     </script>
     <!-- End of Tawk.to Script -->
+
 </body>
 </html>
