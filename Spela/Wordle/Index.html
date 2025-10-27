@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wordle - MÖRKT</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f0f0f0;
+            padding: 10px;
+            overscroll-behavior: none;
+        }
+
+        h1 {
+            color: #333;
+            font-size: clamp(24px, 8vw, 32px);
+            margin-bottom: 15px;
+        }
+
+        #game-board {
+            display: grid;
+            gap: 5px;
+            margin-bottom: 15px;
+            width: 100%;
+            max-width: 350px;
+        }
+
+        .row {
+            display: flex;
+            gap: 5px;
+            justify-content: center;
+        }
+
+        .tile {
+            width: clamp(40px, 11vw, 55px);
+            height: clamp(40px, 11vw, 55px);
+            border: 2px solid #ccc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: clamp(16px, 5vw, 20px);
+            font-weight: bold;
+            text-transform: uppercase;
+            background-color: white;
+        }
+
+        .tile.correct {
+            background-color: #6aaa64;
+            color: white;
+        }
+
+        .tile.present {
+            background-color: #c9b458;
+            color: white;
+        }
+
+        .tile.absent {
+            background-color: #787c7e;
+            color: white;
+        }
+
+        #input {
+            padding: 10px;
+            font-size: clamp(14px, 4vw, 16px);
+            width: 100%;
+            max-width: 300px;
+            margin-bottom: 10px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            text-transform: uppercase;
+        }
+
+        #message {
+            font-size: clamp(14px, 4vw, 16px);
+            margin: 10px 0;
+            text-align: center;
+            color: #333;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: clamp(14px, 4vw, 16px);
+            cursor: pointer;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            touch-action: manipulation;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+
+        /* Mobilanpassning för mindre skärmar */
+        @media (max-width: 600px) {
+            #game-board {
+                max-width: 90vw;
+            }
+
+            .tile {
+                width: clamp(35px, 12vw, 50px);
+                height: clamp(35px, 12vw, 50px);
+                font-size: clamp(14px, 5vw, 18px);
+            }
+
+            #input {
+                max-width: 80vw;
+            }
+
+            button {
+                width: 100%;
+                max-width: 200px;
+            }
+        }
+
+        /* Förhindra oönskat beteende vid touch-scroll */
+        html, body {
+            touch-action: manipulation;
+        }
+    </style>
+</head>
+<body>
+    <h1>Wordle</h1>
+    <div id="game-board"></div>
+    <input type="text" id="input" maxlength="5" placeholder="Skriv ett ord">
+    <button onclick="submitGuess()">Skicka</button>
+    <button onclick="resetGame()" style="display: none;" id="reset-button">Spela igen</button>
+    <div id="message"></div>
+
+    <script>
+        const TARGET_WORD = "MÖRKT";
+        const MAX_ATTEMPTS = 5;
+        let currentRow = 0;
+        let gameOver = false;
+
+        function createBoard() {
+            const board = document.getElementById('game-board');
+            board.innerHTML = '';
+            for (let i = 0; i < MAX_ATTEMPTS; i++) {
+                const row = document.createElement('div');
+                row.className = 'row';
+                for (let j = 0; j < 5; j++) {
+                    const tile = document.createElement('div');
+                    tile.className = 'tile';
+                    row.appendChild(tile);
+                }
+                board.appendChild(row);
+            }
+        }
+
+        function submitGuess() {
+            if (gameOver) return;
+            const input = document.getElementById('input');
+            const guess = input.value.toUpperCase();
+            if (guess.length !== 5) {
+                document.getElementById('message').textContent = 'Ordet måste vara 5 bokstäver!';
+                return;
+            }
+            if (!/^[A-ZÅÄÖ]+$/.test(guess)) {
+                document.getElementById('message').textContent = 'Använd endast bokstäver!';
+                return;
+            }
+
+            const rows = document.getElementsByClassName('row');
+            const tiles = rows[currentRow].getElementsByClassName('tile');
+            for (let i = 0; i < 5; i++) {
+                tiles[i].textContent = guess[i];
+                if (guess[i] === TARGET_WORD[i]) {
+                    tiles[i].classList.add('correct');
+                } else if (TARGET_WORD.includes(guess[i])) {
+                    tiles[i].classList.add('present');
+                } else {
+                    tiles[i].classList.add('absent');
+                }
+            }
+
+            if (guess === TARGET_WORD) {
+                document.getElementById('message').textContent = `Grattis! Ordet var ${TARGET_WORD}!`;
+                gameOver = true;
+                document.getElementById('reset-button').style.display = 'block';
+            } else if (currentRow === MAX_ATTEMPTS - 1) {
+                document.getElementById('message').textContent = 'Spelet är över! Du klarade inte ordet.';
+                gameOver = true;
+                document.getElementById('reset-button').style.display = 'block';
+            } else {
+                currentRow++;
+            }
+            input.value = '';
+        }
+
+        function resetGame() {
+            currentRow = 0;
+            gameOver = false;
+            document.getElementById('message').textContent = '';
+            document.getElementById('reset-button').style.display = 'none';
+            createBoard();
+        }
+
+        document.getElementById('input').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                submitGuess();
+            }
+        });
+
+        createBoard();
+    </script>
+</body>
+</html>
