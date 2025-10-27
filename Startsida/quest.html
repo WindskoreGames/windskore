@@ -145,13 +145,23 @@
 
     let unlockedQuests = [1];
 
-    const quests = [
-      { id: 1, img: "Halloween-Picture-1.png", code: "7206" },
-      { id: 2, img: "Halloween-Picture-2.png", code: "0000" },
-      { id: 3, img: "Halloween-Picture-3.png", code: "0000" },
-      { id: 4, img: "Halloween-Picture-4.png", code: "0000" },
-      { id: 5, img: "Halloween-Picture-5.png", code: "0000" },
-    ];
+const quests = [
+  { 
+    id: 1, 
+    img: "Halloween-Picture-1.png", 
+    code: "7206",
+    description: "Någonstans på hemsidan finns en gömd kod – fyra siffror – som låser upp ditt quest. Leta noga!"
+  },
+  { 
+    id: 2, 
+    img: "Halloween-Picture-2.png", 
+    code: "MÖRKT",
+    description: "Spela det nya Halloween Wordle på hemsidan och gissa rätt ord. När du klarar det, skriv in koden här. Du kan spela det här: windskore.se/Spela/Wordle/Index.html"
+  },
+  { id: 3, img: "Halloween-Picture-3.png", code: "0000", description: "Beskrivning för Quest 3 kommer snart." },
+  { id: 4, img: "Halloween-Picture-4.png", code: "0000", description: "Beskrivning för Quest 4 kommer snart." },
+  { id: 5, img: "Halloween-Picture-5.png", code: "0000", description: "Beskrivning för Quest 5 kommer snart." },
+];
 
     let currentQuest = null;
     let completed = [];
@@ -160,7 +170,7 @@
       const quest = quests.find(q => q.id === id);
       currentQuest = quest;
       questTitle.textContent = "Quest " + id;
-      questInstructions.textContent = "Någonstans på hemsidan finns en gömd kod – fyra siffror – som låser upp ditt quest. Leta noga och skriv in koden här.";
+      questInstructions.textContent = quest.description;
       questCodeInput.value = "";
       questPopup.style.display = "flex";
     }
