@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buggrapport - Windskore</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Fade-in animation */
+        @keyframes fadeIn {
+            from {opacity: 0; transform: translateY(20px);}
+            to {opacity: 1; transform: translateY(0);}
+        }
+        .animate-fade-in {
+            animation: fadeIn 1s ease forwards;
+        }
+
+        /* Body gradient background */
+        body {
+            background: linear-gradient(to bottom, #f0f4f8, #d9e2ec);
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <!-- Header -->
+    <header class="py-12 text-center">
+        <h1 class="text-6xl font-extrabold text-gray-800 animate-fade-in">
+            Windskore Buggrapport
+        </h1>
+        <p class="mt-4 text-gray-600 text-lg animate-fade-in">
+            Hjälp oss förbättra spelet genom att rapportera buggar här!
+        </p>
+    </header>
+
+    <!-- Bug Report Form Section -->
+    <section id="bug-report" class="flex-grow py-20">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-center">
+                <form action="https://formspree.io/f/xwprkznr" method="POST" 
+                      class="w-full max-w-md bg-white rounded-3xl shadow-2xl p-10 space-y-6 transform transition duration-500 hover:scale-105 animate-fade-in">
+
+                    <!-- Bug Title -->
+                    <div class="relative">
+                        <input type="text" id="bug_title" name="bug_title" required
+                               class="peer w-full border-2 border-gray-300 rounded-xl px-4 pt-5 pb-2 focus:outline-none focus:border-red-500"
+                               placeholder=" ">
+                        <label for="bug_title"
+                               class="absolute left-4 top-2 text-gray-500 text-sm transition-all peer-placeholder-shown:top-5 peer-placeholder-shown:text-gray-400 peer-placeholder-shown:text-base peer-focus:top-2 peer-focus:text-gray-700 peer-focus:text-sm">
+                            Bug Titel*
+                        </label>
+                    </div>
+
+<!-- Game Selection -->
+<div>
+    <label for="game_name" class="block text-gray-700 font-medium mb-2">Vilket spel?*</label>
+    <select id="game_name" name="game_name" required
+            class="w-full border-2 border-gray-300 rounded-xl px-4 py-2 focus:outline-none focus:border-red-500">
+        <option value="" disabled selected>Välj spel</option>
+        <option value="island_of_vehicles">Island Of Vehicles</option>
+    </select>
+</div>
+
+                    <!-- Bug Description -->
+                    <div class="relative">
+                        <textarea id="bug_description" name="bug_description" required rows="4"
+                                  class="peer w-full border-2 border-gray-300 rounded-xl px-4 pt-5 pb-2 focus:outline-none focus:border-red-500 resize-none"
+                                  placeholder=" "></textarea>
+                        <label for="bug_description"
+                               class="absolute left-4 top-2 text-gray-500 text-sm transition-all peer-placeholder-shown:top-5 peer-placeholder-shown:text-gray-400 peer-placeholder-shown:text-base peer-focus:top-2 peer-focus:text-gray-700 peer-focus:text-sm">
+                            Beskriv buggen*
+                        </label>
+                    </div>
+
+                    <!-- Steps to Reproduce -->
+                    <div class="relative">
+                        <textarea id="steps" name="steps" required rows="3"
+                                  class="peer w-full border-2 border-gray-300 rounded-xl px-4 pt-5 pb-2 focus:outline-none focus:border-red-500 resize-none"
+                                  placeholder=" "></textarea>
+                        <label for="steps"
+                               class="absolute left-4 top-2 text-gray-500 text-sm transition-all peer-placeholder-shown:top-5 peer-placeholder-shown:text-gray-400 peer-placeholder-shown:text-base peer-focus:top-2 peer-focus:text-gray-700 peer-focus:text-sm">
+                            Steg för att återskapa buggen*
+                        </label>
+                    </div>
+
+                    <!-- Bug Priority -->
+                    <div>
+                        <label for="priority" class="block text-gray-700 font-medium mb-2">Prioritet*</label>
+                        <select id="priority" name="priority" required
+                                class="w-full border-2 border-gray-300 rounded-xl px-4 py-2 focus:outline-none focus:border-red-500">
+                            <option value="" disabled selected>Välj prioritet</option>
+                            <option value="low">Låg</option>
+                            <option value="medium">Mellan</option>
+                            <option value="high">Hög</option>
+                            <option value="critical">Kritisk</option>
+                        </select>
+                    </div>
+
+                    <!-- Contact Email -->
+                    <div class="relative">
+                        <input type="email" id="email" name="email" required
+                               class="peer w-full border-2 border-gray-300 rounded-xl px-4 pt-5 pb-2 focus:outline-none focus:border-red-500"
+                               placeholder=" ">
+                        <label for="email"
+                               class="absolute left-4 top-2 text-gray-500 text-sm transition-all peer-placeholder-shown:top-5 peer-placeholder-shown:text-gray-400 peer-placeholder-shown:text-base peer-focus:top-2 peer-focus:text-gray-700 peer-focus:text-sm">
+                            Din Email*
+                        </label>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" 
+                            class="w-full bg-red-600 text-white font-bold py-3 rounded-xl hover:bg-red-700 transition-colors shadow-lg hover:shadow-xl">
+                        Skicka Buggrapport
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 text-center text-gray-600 text-sm">
+        © 2025 Windskore. Alla rättigheter förbehållna.
+    </footer>
+
+</body>
+</html>
