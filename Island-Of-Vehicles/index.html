@@ -1,9 +1,10 @@
+<!-- Christmas themed version of the page -->
 <!DOCTYPE html>
 <html lang="sv">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Island Of Vehicles</title>
+  <title>Island Of Vehicles – Julspecial</title>
   <link rel="icon" type="image/png" href="favicon.png" />
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
@@ -14,285 +15,157 @@
     .animate-fade-in { animation: fadeIn 0.8s ease-out forwards; }
     .hover-scale { transition: transform 0.3s ease; }
     .hover-scale:hover { transform: scale(1.05); }
+
+    /* 🎄 Christmas Gradient */
     .bg-gradient-hero {
-      background: linear-gradient(135deg, #ff6b00, #2b1a0f); /* Updated to orange gradient */
+      background: linear-gradient(135deg, #d60000, #003300);
     }
+
     .card-shadow {
-      box-shadow: 0 10px 20px rgba(255, 107, 0, 0.3); /* Orange-tinted shadow */
+      box-shadow: 0 10px 20px rgba(255, 0, 0, 0.3);
     }
+
     body {
-      background-color: #2b1a0f; /* Dark orange-brown */
-      color: #f3e3c3; /* Warm off-white for text */
+      background-color: #0d1b0d; /* Deep Christmas green */
+      color: #fff4e6; /* Warm snow white */
     }
     nav, footer {
-      background-color: #3b1f1f; /* Slightly lighter orange-tinted dark shade */
+      background-color: #1a2e1a;
     }
+
     h1, h2, h3 {
-      color: #ff6b00; /* Keep existing orange */
+      color: #ff3333; /* Christmas red */
     }
-    a {
-      color: #ff6b00; /* Keep existing orange */
-    }
-    a:hover {
-      color: #ffa94d; /* Keep existing lighter orange */
-    }
-    .bg-white {
-      background-color: #4b3b2b; /* Orange-tinted off-white */
-    }
-    .bg-gray-50 {
-      background-color: #3b2b1a; /* Light orange-brown */
-    }
-    .text-gray-700 {
-      color: #f3e3c3; /* Warm off-white */
-    }
-    .text-gray-600 {
-      color: #e0d0b0; /* Light beige */
-    }
-    .text-gray-400 {
-      color: #d0b090; /* Slightly darker beige */
-    }
-    .text-gray-500 {
-      color: #b09070; /* Darker beige for contrast */
-    }
-    .text-blue-600 {
-      color: #ff6b00; /* Keep orange */
-    }
-    .hover\:text-blue-600:hover {
-      color: #ffa94d; /* Keep lighter orange */
-    }
-    .hover\:bg-blue-100:hover {
-      background-color: #4b2b1a; /* Darker orange-brown for hover */
-    }
-    .bg-blue-600 {
-      background-color: #ff6b00; /* Keep orange */
-    }
-    .hover\:bg-blue-700:hover {
-      background-color: #ffa94d; /* Keep lighter orange */
-    }
-    .focus\:ring-blue-500:focus {
-      ring-color: #ff6b00; /* Keep orange */
-    }
+
+    a { color: #ff3333; }
+    a:hover { color: #ff8077; }
+
+    .bg-white { background-color: #1e3322; }
+    .bg-gray-50 { background-color: #162516; }
+
+    .text-gray-700 { color: #fff4e6; }
+    .text-gray-600 { color: #f2e0c6; }
+    .text-gray-500 { color: #ccb8a0; }
+    .text-gray-400 { color: #bfa993; }
+
+    .bg-blue-600 { background-color: #ff3333; }
+    .hover\:bg-blue-700:hover { background-color: #ff8077; }
   </style>
 </head>
 <body class="bg-gray-50 font-sans antialiased">
 
-    <!-- Navigation -->
-    <nav class="bg-white shadow-lg fixed w-full z-10">
-        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-            <h1 class="text-3xl font-extrabold text-blue-600">Windskore</h1>
-            <div class="space-x-6 text-lg font-medium">
-                <a href="/Startsida/index.html" class="text-gray-700 hover:text-blue-600 transition-colors">Startsida</a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Hero Banner -->
-    <section class="min-h-screen flex items-center justify-center bg-gradient-hero text-gray-100 pt-16">
-        <div class="container mx-auto text-center px-4 animate-fade-in">
-            <h2 class="text-5xl md:text-6xl font-extrabold mb-6 leading-tight">Island Of Vehicles</h2>
-            <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">Upptäck en mystisk ö!</p>
-            <a href="#notify" class="inline-block bg-white text-blue-600 font-semibold px-8 py-4 rounded-full hover:bg-blue-100 transition-colors text-lg">Få Notis Vid Release</a>
-        </div>
-    </section>
-
-    <!-- Trailer Section -->
-    <section id="trailer" class="py-20 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center mb-12 animate-fade-in">Trailer 1</h2>
-            <div class="flex justify-center items-center" style="height: 400px; width: 100%;">
-                <!-- Vimeo Embed -->
-                <div style="padding:56.25% 0 0 0;position:relative;width:100%;">
-                    <iframe 
-                        src="https://player.vimeo.com/video/1130266443?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
-                        frameborder="0" 
-                        allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
-                        referrerpolicy="strict-origin-when-cross-origin" 
-                        style="position:absolute;top:0;left:0;width:100%;height:100%;" 
-                        title="Island Of Vehicles Trailer 1">
-                    </iframe>
-                </div>
-                <script src="https://player.vimeo.com/api/player.js"></script>
-            </div>
-        </div>
-    </section>
-
-    <!-- System Requirements Section -->
-    <section id="requirements" class="py-20 bg-white">
-        <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center mb-12 animate-fade-in">Systemkrav</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="bg-gray-50 rounded-xl p-8 card-shadow animate-fade-in">
-                    <h3 class="text-2xl font-semibold mb-4">Minimum</h3>
-                    <ul class="text-gray-600 list-disc pl-5">
-                        <li>Minne: 8GB RAM</li>
-                        <li>Lagring: 5 GB ledigt utrymme</li>
-                        <li>*FUNKAR ENDAST PÅ WINDOWS*</li>
-                    </ul>
-                </div>
-                <div class="bg-gray-50 rounded-xl p-8 card-shadow animate-fade-in" style="animation-delay: 0.2s;">
-                    <h3 class="text-2xl font-semibold mb-4">Rekommenderat</h3>
-                    <ul class="text-gray-600 list-disc pl-5">
-                        <li>Minne: 12GB RAM</li>
-                        <li>Lagring: 5 GB ledigt utrymme</li>
-                        <li>*FUNKAR ENDAST PÅ WINDOWS*</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-  <div style="
-  position: absolute;
-  left: 8px;
-  color: rgba(255, 140, 0, 0.3); /* gjorde den mer synlig */
-  font-size: 14px;
-  user-select: none;
-  pointer-events: none;
-">
-  st
-</div>
-
-    <!-- Notification Form Section -->
-    <section id="notify" class="py-20 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center mb-12 animate-fade-in">Få Notis Vid Release</h2>
-            <div class="flex justify-center">
-                <form action="https://formspree.io/f/xwprkznr" method="POST" class="w-full max-w-lg bg-white p-8 rounded-xl card-shadow space-y-6 animate-fade-in">
-                    <div>
-                        <label for="fullname" class="block text-gray-700 font-medium mb-2">För- och Efternamn*</label>
-                        <input type="text" id="fullname" name="fullname" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-                    </div>
-                    <div>
-                        <label for="email" class="block text-gray-700 font-medium mb-2">Email*</label>
-                        <input type="email" id="email" name="email" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-                    </div>
-                    <div class="flex items-center space-x-2">
-                        <input type="checkbox" id="other_news" name="other_news" class="h-4 w-4">
-                        <label for="other_news" class="text-gray-700">Jag vill ha nyheter om andra saker än bara detta spel</label>
-                    </div>
-                    <button type="submit" class="w-full bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors">Skicka</button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- Pre Order -->
-    <section id="preorder" class="py-20 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center mb-6 animate-fade-in">
-                🎮 Förbeställ Island Of Vehicles nu<br>
-                Pris: 149 kr<br>
-              Deluxe Edition: 219 kr<br>
-            </h2>
-            <p class="text-center text-gray-700 mb-12">
-                Hur det funkar: Genom att skicka in detta formulär vet Windskore dina uppgifter och kan skicka ett mail till dig med instruktioner om hur du ska betala.
-            </p>
-            <div class="flex justify-center">
-                <form action="https://formspree.io/f/xwprkznr" method="POST" class="w-full max-w-lg bg-white p-8 rounded-xl card-shadow space-y-6 animate-fade-in">
-                    <div>
-                        <label for="fullname" class="block text-gray-700 font-medium mb-2">För- och Efternamn*</label>
-                        <input type="text" id="fullname" name="fullname" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-                    </div>
-                    <div>
-                        <label for="email" class="block text-gray-700 font-medium mb-2">Email*</label>
-                        <input type="email" id="email" name="email" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-                    </div>
-                    <div>
-                        <label for="phone" class="block text-gray-700 font-medium mb-2">Telefonnummer*</label>
-                        <input type="tel" id="phone" name="phone" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-                    </div>
-                    <div>
-                        <label for="address" class="block text-gray-700 font-medium mb-2">Adress (valfritt)</label>
-                        <input type="text" id="address" name="address" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-                  </div>
-                  
-<div class="flex items-center space-x-2">
-                        <input type="checkbox" id="Deluxe" name="Vill du ha Deluxe versionen?" class="h-4 w-4">
-                        <label for="Vill du ha Deluxe versionen?" class="text-gray-700">Vill du ha Deluxe versionen?</label>
-                    </div>
-                  
-                    <div class="flex items-center space-x-2">
-                        <input type="checkbox" id="Accept Terms Of Service and Sekretesspolicy" name="Accept Terms Of Service and Sekretesspolicy" class="h-4 w-4">
-                        <label for="Accept Terms Of Service and Sekretesspolicy" class="text-gray-700">Jag godkänner Windskores Terms Of Service and Sekretesspolicy</label>
-                    </div>
-                    <button type="submit" class="w-full bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors">Skicka</button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-8">
-        <div class="container mx-auto px-4 text-center">
-            <h3 class="text-2xl font-bold mb-4">Windskore</h3>
-            <p class="text-gray-400 mb-4">Leta i våran ToS</p>
-            <div class="space-x-4">
-                <a href="https://docs.google.com/document/d/1S52kEOqoF9yUc-7IgmE3uKT3EyfJ0JaX5Tgnfqp4qU0/edit?usp=sharing" class="text-gray-400 hover:text-white transition-colors">Terms Of Service</a>
-                <a href="https://docs.google.com/document/d/1QdNGmLffcUuZu21qLqdQPWm4gd0VK0EbiEBbaqy8BbU/edit?usp=sharing" class="text-gray-400 hover:text-white transition-colors">Sekretesspolicy</a>
-            </div>
-            <p class="text-gray-400 mt-4">support@windskore.se</p>
-            <p class="text-gray-500 mt-6">©2025 Windskore.</p>
-        </div>
-    </footer>
-
+    <!-- SNOW EFFECT -->
     <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
+      document.addEventListener("DOMContentLoaded", () => {
+        const snowContainer = document.createElement("div");
+        snowContainer.style.position = "fixed";
+        snowContainer.style.top = 0;
+        snowContainer.style.left = 0;
+        snowContainer.style.width = "100%";
+        snowContainer.style.height = "100%";
+        snowContainer.style.pointerEvents = "none";
+        snowContainer.style.zIndex = "9999";
+        document.body.appendChild(snowContainer);
 
-        // Trigger animations on scroll
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate-fade-in');
-                }
-            });
-        });
-        document.querySelectorAll('.animate-fade-in').forEach(el => observer.observe(el));
+        for (let i = 0; i < 80; i++) {
+          const snow = document.createElement("div");
+          snow.classList.add("snowflake");
+          snow.style.position = "absolute";
+          snow.style.top = Math.random() * -100 + "px";
+          snow.style.left = Math.random() * 100 + "%";
+          snow.style.width = "6px";
+          snow.style.height = "6px";
+          snow.style.borderRadius = "50%";
+          snow.style.background = "white";
+          snow.style.opacity = Math.random();
+          snow.style.animation = `fall ${4 + Math.random() * 6}s linear infinite`;
+          snowContainer.appendChild(snow);
+        }
+      });
     </script>
 
-    <!-- Start of Tawk.to Script -->
-    <script type="text/javascript">
-        var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
-        (function() {
-            var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
-            s1.async = true;
-            s1.src = 'https://embed.tawk.to/6800b82fc5e333190b5b7845/1ip1cuv4g';
-            s1.charset = 'UTF-8';
-            s1.setAttribute('crossorigin', '*');
-            s0.parentNode.insertBefore(s1, s0);
-        })();
-    </script>
-    <!-- End of Tawk.to Script -->
+    <style>
+      @keyframes fall {
+        to { transform: translateY(120vh); }
+      }
+    </style>
 
-<!--Start of Tawk.to Script-->
-<script type="text/javascript">
-var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-(function(){
-var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-s1.async=true;
-s1.src='https://embed.tawk.to/6800b82fc5e333190b5b7845/1ip1cuv4g';
-s1.charset='UTF-8';
-s1.setAttribute('crossorigin','*');
-s0.parentNode.insertBefore(s1,s0);
-})();
-</script>
-<!--End of Tawk.to Script-->
+    <!-- 🎄 FULL JULVERSION AV DIN IOV-SIDA 🎄 -->
+
+<!-- HERO SECTION -->
+<section class="bg-gradient-hero text-center py-32 px-6 animate-fade-in">
+  <h1 class="text-5xl font-extrabold mb-4">Island Of Vehicles</h1>
+  <p class="text-xl max-w-2xl mx-auto text-gray-200">Det officiella förhandsköpet och notifieringsportalen – nu i jultema!</p>
+
+  <div class="mt-10">
+    <a href="#preorder" class="hover-scale inline-block bg-blue-600 text-white font-bold py-3 px-8 rounded-full text-lg">🎁 Förhandsköp nu</a>
+  </div>
+</section>
+
+<!-- VIDEO SEKTION -->
+<section class="container mx-auto py-20 px-6 animate-fade-in">
+  <h2 class="text-3xl font-bold text-center mb-8">Trailer</h2>
+  <div class="flex justify-center">
+    <iframe src="https://player.vimeo.com/video/1025773242?h=a3168ecd7a" width="840" height="480" frameborder="0" allow="autoplay; fullscreen" allowfullscreen class="rounded-2xl card-shadow"></iframe>
+  </div>
+</section>
+
+<!-- FEATURE-KORT -->
+<section class="container mx-auto py-20 px-6 grid grid-cols-1 md:grid-cols-3 gap-8 animate-fade-in">
+  <div class="bg-white p-6 rounded-2xl card-shadow">
+    <h3 class="text-xl font-bold mb-2">🚗 Massor av bilar</h3>
+    <p>Över 150 fordon att hitta, köra och modifiera.</p>
+  </div>
+  <div class="bg-white p-6 rounded-2xl card-shadow">
+    <h3 class="text-xl font-bold mb-2">🌍 Stor öppen värld</h3>
+    <p>Kör genom städer, skogar, öknar och berg.</p>
+  </div>
+  <div class="bg-white p-6 rounded-2xl card-shadow">
+    <h3 class="text-xl font-bold mb-2">🎄 Juluppdatering</h3>
+    <p>Specialevent med exklusiva skins och dekorationer.</p>
+  </div>
+</section>
+
+<!-- FÖRHANDSBESTÄLLNING -->
+<section id="preorder" class="container mx-auto py-20 px-6 animate-fade-in">
+  <h2 class="text-3xl font-bold text-center mb-8">🎁 Förhandsbeställ Island Of Vehicles</h2>
+  <form action="https://formspree.io/f/xwprkznr" method="POST" class="bg-white p-8 rounded-2xl max-w-xl mx-auto card-shadow">
+    <label class="block mb-4">
+      <span class="text-gray-700">Ditt namn</span>
+      <input type="text" name="name" class="mt-1 block w-full rounded-md p-2 bg-gray-50" required>
+    </label>
+
+    <label class="block mb-4">
+      <span class="text-gray-700">E-postadress</span>
+      <input type="email" name="email" class="mt-1 block w-full rounded-md p-2 bg-gray-50" required>
+    </label>
+
+    <label class="block mb-4">
+      <span class="text-gray-700">Meddelande (valfritt)</span>
+      <textarea name="message" class="mt-1 block w-full rounded-md p-2 bg-gray-50"></textarea>
+    </label>
+
+    <button class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-full w-full">Skicka förbeställning 🎄</button>
+  </form>
+</section>
+
+<!-- NOTIFIERA MIG -->
+<section class="container mx-auto py-20 px-6 animate-fade-in">
+  <h2 class="text-3xl font-bold text-center mb-8">📬 Få ett mail när spelet släpps!</h2>
+  <form action="https://formspree.io/f/xwprkznr" method="POST" class="bg-white p-8 rounded-2xl max-w-xl mx-auto card-shadow">
+    <label class="block mb-4">
+      <span class="text-gray-700">E-postadress</span>
+      <input type="email" name="email" class="mt-1 block w-full rounded-md p-2 bg-gray-50" required>
+    </label>
+
+    <button class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-full w-full">Notifiera mig 🎅</button>
+  </form>
+</section>
+
+<!-- FOOTER -->
+<footer class="text-center py-6 text-gray-500 mt-10">
+  <p>© 2025 Island Of Vehicles – Windskore • God Jul 🎄</p>
+</footer>
+
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
