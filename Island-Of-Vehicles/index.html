@@ -114,8 +114,11 @@
 
 <!-- KÖP -->
   
-<script 
-  src="https://www.paypal.com/sdk/js?client-id=BAANHl_iJeez51s4CW1QXYvhii1k0N3C4OxdmRezMMRN3ewk32Al7koF84-m6EEtanhid-_Um3NK_Fk1cA&components=hosted-buttons&disable-funding=venmo&currency=SEK">
+<div id="paypal-container-Q7PYPDX47Y2SJ"></div>
+<script>
+  paypal.HostedButtons({
+    hostedButtonId: "Q7PYPDX47Y2SJ",
+  }).render("#paypal-container-Q7PYPDX47Y2SJ")
 </script>
   
 <!-- NOTIFIERA MIG -->
@@ -144,6 +147,7 @@
 </script>
 </body>
 </html>
+
 
 
 
