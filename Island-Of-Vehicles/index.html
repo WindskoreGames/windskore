@@ -1,142 +1,326 @@
-<!-- Christmas themed version of the page -->
 <!DOCTYPE html>
 <html lang="sv">
-<script 
-  src="https://www.paypal.com/sdk/js?client-id=BAANHl_iJeez51s4CW1QXYvhii1k0N3C4OxdmRezMMRN3ewk32Al7koF84-m6EEtanhid-_Um3NK_Fk1cA&components=hosted-buttons&disable-funding=venmo&currency=SEK">
-</script>
-  <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Island Of Vehicles</title>
-  <link rel="icon" type="image/png" href="favicon.png" />
-  <script src="https://cdn.tailwindcss.com"></script>
+  <meta name="description" content="" />
+  <meta name="theme-color" content="#FF6A00" />
+  <meta property="og:title" content="Island Of Vehicles" />
+  <meta property="og:description" content="Se trailern och köp Island Of Vehicles nu." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://example.com/iov_og.jpg" />
+  <meta property="og:url" content="https://example.com/store/island-of-vehicles" />
   <style>
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+    :root{
+      --bg:#0b0c0f;
+      --panel:#121418;
+      --text:#e9eef7;
+      --muted:#b9c2d0;
+      --brand:#FF6A00;     /* Orange accent */
+      --brand-2:#FFD140;   /* Pay button accent */
+      --line:#1f2430;
+      --ok:#10b981;
+      --warn:#f59e0b;
     }
-    .animate-fade-in { animation: fadeIn 0.8s ease-out forwards; }
-    .hover-scale { transition: transform 0.3s ease; }
-    .hover-scale:hover { transform: scale(1.05); }
-
-    /* 🎄 Christmas Gradient */
-    .bg-gradient-hero {
-      background: linear-gradient(135deg, #d60000, #003300);
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
+    a{color:var(--brand);text-decoration:none}
+    a:hover{text-decoration:underline}
+    img{max-width:100%;height:auto}
+    .wrap{max-width:1160px;margin:0 auto;padding:24px}
+    header.hero{
+      display:grid;grid-template-columns:1fr;gap:16px;align-items:center;justify-items:start;
+      padding:32px 0;border-bottom:1px solid var(--line)
     }
-
-    .card-shadow {
-      box-shadow: 0 10px 20px rgba(255, 0, 0, 0.3);
+    .brandline{display:flex;gap:12px;align-items:center}
+    .logo{
+      width:56px;height:56px;border-radius:12px;
+      background:radial-gradient(120% 120% at 30% 30%, #FFB36A 0%, #FF6A00 48%, #9e3e00 100%);
+      box-shadow:0 10px 30px rgba(255,106,0,.25), inset 0 0 18px rgba(255,209,64,.35)
     }
-
-    body {
-      background-color: #0d1b0d; /* Deep Christmas green */
-      color: #fff4e6; /* Warm snow white */
-    }
-    nav, footer {
-      background-color: #1a2e1a;
-    }
-
-    h1, h2, h3 {
-      color: #ff3333; /* Christmas red */
-    }
-
-    a { color: #ff3333; }
-    a:hover { color: #ff8077; }
-
-    .bg-white { background-color: #1e3322; }
-    .bg-gray-50 { background-color: #162516; }
-
-    .text-gray-700 { color: #fff4e6; }
-    .text-gray-600 { color: #f2e0c6; }
-    .text-gray-500 { color: #ccb8a0; }
-    .text-gray-400 { color: #bfa993; }
-
-    .bg-blue-600 { background-color: #ff3333; }
-    .hover\:bg-blue-700:hover { background-color: #ff8077; }
+    h1{margin:0;font-size:34px;letter-spacing:.2px}
+    .subtitle{color:var(--muted);font-size:16px}
+    .cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:12px}
+    .badge{display:inline-flex;gap:8px;align-items:center;padding:8px 12px;border:1px solid var(--line);border-radius:999px;color:var(--muted);background:linear-gradient(180deg, #14171d 0%, #0f1116 100%)}
+    .section{padding:28px 0;border-bottom:1px solid var(--line)}
+    .panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px}
+    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    @media (max-width:960px){.grid-2,.grid-3{grid-template-columns:1fr}}
+    h2{font-size:24px;margin:0 0 12px}
+    h3{font-size:18px;margin:0 0 8px}
+    .kicker{color:var(--muted);font-size:13px;text-transform:uppercase;letter-spacing:.12em}
+    .feature{display:flex;gap:12px}
+    .dot{width:10px;height:10px;border-radius:50%;background:var(--brand);margin-top:6px;flex:0 0 10px;box-shadow:0 0 0 4px rgba(255,106,0,.12)}
+    .list{display:grid;gap:10px}
+    .buy{display:grid;gap:14px}
+    .price-row{display:flex;align-items:center;gap:10px}
+    .price{font-size:22px;font-weight:700}
+    .note{color:var(--muted);font-size:14px}
+    .trailer{overflow:hidden;border-radius:14px;box-shadow:0 12px 30px rgba(0,0,0,.35)}
+    .gallery-card{position:relative;overflow:hidden;border-radius:12px;background:#0d0f13;border:1px solid var(--line);min-height:180px}
+    .gallery-card .label{position:absolute;left:10px;bottom:10px;background:rgba(0,0,0,.6);color:#fff;padding:6px 10px;border-radius:999px;font-size:12px;border:1px solid rgba(255,255,255,.12)}
+    .placeholder{display:grid;place-items:center;height:180px;color:#7a8aa0;background:repeating-linear-gradient(135deg,#0f1217,#0f1217 12px,#0c0e12 12px,#0c0e12 24px)}
+    .sys{display:grid;gap:8px}
+    .sys .row{display:grid;grid-template-columns:160px 1fr;gap:12px}
+    @media (max-width:640px){.sys .row{grid-template-columns:1fr}}
+    footer{padding:32px 0;color:var(--muted)}
+    .small{font-size:12px}
+    .highlight{color:#fff;background:linear-gradient(90deg, rgba(255,106,0,.15), rgba(255,209,64,.12));padding:2px 6px;border-radius:6px;border:1px solid rgba(255,106,0,.25)}
+    .chip{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:999px;border:1px dashed rgba(255,209,64,.35);color:#ffd140;background:rgba(255,209,64,.08)}
+    .shadow-amber{box-shadow:0 8px 24px rgba(255,106,0,.18)}
+    .pay-panel{display:grid;gap:12px}
   </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "VideoGame",
+    "name": "Island Of Vehicles",
+    "genre": "Open world, vehicle collection, exploration",
+    "url": "https://windskore.se/Island-of-vehicles",
+    "description": "",
+    "author": {"@type":"Organization","name":"Windskore"},
+    "publisher": {"@type":"Organization","name":"Windskore"},
+    "inLanguage": "sv",
+    "offers": {
+      "@type": "Offer",
+      "priceCurrency": "SEK",
+      "availability": "https://schema.org/InStock",
+      "url": "https://www.paypal.com/ncp/payment/Q7PYPDX47Y2SJ"
+    },
+    "trailer": {
+      "@type": "VideoObject",
+      "name": "Island Of Vehicles – Launch Trailer",
+      "embedUrl": "https://streamable.com/e/fr1sed?"
+    },
+    "operatingSystem": "Windows 11",
+    "applicationCategory": "Game"
+  }
+  </script>
 </head>
-<body class="bg-gray-50 font-sans antialiased">
+<body>
+  <div class="wrap">
+    <!-- Hero -->
+    <header class="hero">
+      <div class="brandline">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          <h1>Island Of Vehicles</h1>
+          <div class="subtitle"></div>
+          <div class="cta-row">
+            <span class="badge"><span class="highlight">Windows 11</span> PC</span>
+            <span class="badge">Singleplayer</span>
+            <span class="badge">Tangentbord</span>
+            <span class="badge">Regelbundna uppdateringar</span>
+          </div>
+        </div>
+      </div>
+    </header>
 
-    <!-- SNOW EFFECT -->
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const snowContainer = document.createElement("div");
-        snowContainer.style.position = "fixed";
-        snowContainer.style.top = 0;
-        snowContainer.style.left = 0;
-        snowContainer.style.width = "100%";
-        snowContainer.style.height = "100%";
-        snowContainer.style.pointerEvents = "none";
-        snowContainer.style.zIndex = "9999";
-        document.body.appendChild(snowContainer);
+    <!-- Trailer + Buy -->
+    <section class="section grid-2">
+      <div class="panel trailer">
+        <h2>Launch trailer</h2>
+        <!-- Launch Trailer -->
+        <div style="position:relative; width:100%; height:0px; padding-bottom:56.250%">
+          <iframe allow="fullscreen" allowfullscreen height="100%" src="https://streamable.com/e/fr1sed?" width="100%" style="border:none; width:100%; height:100%; position:absolute; left:0px; top:0px; overflow:hidden;" title="Island Of Vehicles – Launch Trailer"></iframe>
+        </div>
+      </div>
 
-        for (let i = 0; i < 80; i++) {
-          const snow = document.createElement("div");
-          snow.classList.add("snowflake");
-          snow.style.position = "absolute";
-          snow.style.top = Math.random() * -100 + "px";
-          snow.style.left = Math.random() * 100 + "%";
-          snow.style.width = "6px";
-          snow.style.height = "6px";
-          snow.style.borderRadius = "50%";
-          snow.style.background = "white";
-          snow.style.opacity = Math.random();
-          snow.style.animation = `fall ${4 + Math.random() * 6}s linear infinite`;
-          snowContainer.appendChild(snow);
-        }
-      });
-    </script>
+      <div class="panel buy shadow-amber">
+        <div class="kicker">Köp nu</div>
+        <h2>Säkra din kopia</h2>
+        <div class="price-row">
+          <div class="chip">Betala med PayPal, kort m.m</div>
+        </div>
+        <div class="note"></div>
+        <div class="pay-panel">
+          <!-- Pay Button (oförändrad) -->
+          <div>
+            <style>
+              .pp-Q7PYPDX47Y2SJ{
+                text-align:center;border:none;border-radius:0.25rem;min-width:11.625rem;padding:0 2rem;height:2.625rem;font-weight:bold;background-color:#FFD140;color:#000000;font-family:"Helvetica Neue",Arial,sans-serif;font-size:1rem;line-height:1.25rem;cursor:pointer;
+              }
+            </style>
+            <form action="https://www.paypal.com/ncp/payment/Q7PYPDX47Y2SJ" method="post" target="_blank" style="display:inline-grid;justify-items:center;align-content:start;gap:0.5rem;">
+              <input class="pp-Q7PYPDX47Y2SJ" type="submit" value="Betala nu" />
+              <img src="https://www.paypalobjects.com/images/Debit_Credit_APM.svg" alt="cards" />
+              <section style="font-size: 0.75rem;">
+                Tillhandahålls av
+                <img src="https://www.paypalobjects.com/paypal-ui/logos/svg/paypal-wordmark-color.svg" alt="paypal" style="height:0.875rem;vertical-align:middle;"/>
+              </section>
+            </form>
+          </div>
+          <div class="small note">Genom att köpa Island Of Vehicles godkänner du Windskore ToS och Sekretesspolicy, samt Island Of Vehicles EULA</div>
+        </div>
+      </div>
+    </section>
 
-    <style>
-      @keyframes fall {
-        to { transform: translateY(120vh); }
-      }
-    </style>
+    <!-- Why buy -->
+    <section class="section panel">
+      <div class="kicker">Varför Island Of Vehicles?</div>
+      <h2>Skapad för upptäckare och samlare</h2>
+      <div class="grid-3">
+        <div class="list">
+          <div class="feature">
+            <div class="dot" aria-hidden="true"></div>
+            <div>
+              <h3>Ön</h3>
+              <div class="note">Ön är inspererad av staden Hedemora/Dalarna. Hus och byggnader är inte samma men 99% av alla vägar är </div>
+            </div>
+          </div>
+          <div class="feature">
+            <div class="dot" aria-hidden="true"></div>
+            <div>
+              <h3>Quest</h3>
+              <div class="note">Spelet i realese stadie innhåller 4 olika quest runt om på kartan.</div>
+            </div>
+          </div>
+        </div>
+        <div class="list">
+          <div class="feature">
+            <div class="dot" aria-hidden="true"></div>
+            <div>
+              <h3>Uppdateringar</h3>
+              <div class="note">Island Of Vehicles kommer regelbundet uppdateras i minst 3 månader framåt.</div>
+            </div>
+          </div>
+          <div class="feature">
+            <div class="dot" aria-hidden="true"></div>
+            <div>
+              <h3>Installation</h3>
+              <div class="note">Spelet installeras enkelt via en .bat och redo att köras.</div>
+            </div>
+          </div>
+        </div>
+        <div class="list">
+          <div class="feature">
+            <div class="dot" aria-hidden="true"></div>
+            <div>
+              <h3>Grafik</h3>
+              <div class="note">Spelet innhåller 4K grafik med Lumen vilket bidrar till detaljerade texturer och bra ljus.</div>
+            </div>
+          </div>
+          <div class="feature">
+            <div class="dot" aria-hidden="true"></div>
+            <div>
+              <h3>Innehål</h3>
+              <div class="note">Spelet innehåller en stor map med massor av hemligheten, kör runt och hitta allt!</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <!-- 🎄 FULL JULVERSION AV DIN IOV-SIDA 🎄 -->
+    <!-- Mellanrum -->
+    <section class="section">
+      <h2></h2>
+      <div class="grid-3">
+        </figure>
+      </div>
+    </section>
 
-    <!-- Launch Trailer -->
-<div style="position:relative; width:100%; height:0px; padding-bottom:56.250%"><iframe allow="fullscreen" allowfullscreen height="100%" src="https://streamable.com/e/fr1sed?" width="100%" style="border:none; width:100%; height:100%; position:absolute; left:0px; top:0px; overflow:hidden;"></iframe></div>
+    <!-- System requirements -->
+    <section class="section panel">
+      <div class="kicker">Systemkrav</div>
+      <h2>Windows PC</h2>
+      <div class="sys">
+        <div class="row">
+          <div class="note">OS</div>
+          <div>Windows 11 (64-bit) (Kan möjligtvis funka på Windows 10, men inte säkert)</div>
+        </div>
+        <div class="row">
+          <div class="note">Minne</div>
+          <div>8 GB RAM (rekommenderat 12 GB)</div>
+        </div>
+        <div class="row">
+          <div class="note">Lagring</div>
+          <div>5 GB ledigt utrymme</div>
+        </div>
+        <div class="row">
+          <div class="note">Input</div>
+          <div>Tangentbord/mus</div>
+        </div>
+      </div>
+      <div class="note" style="margin-top:10px">Specifikationerna kan uppdateras i takt med att spelet utvecklas.</div>
+    </section>
 
-<!-- HERO SECTION -->
-<section class="bg-gradient-hero text-center py-32 px-6 animate-fade-in">
-  <h1 class="text-5xl font-extrabold mb-4">Island Of Vehicles</h1>
-  <p class="text-xl max-w-2xl mx-auto text-gray-200"></p>
+    <!-- FAQ -->
+    <section class="section panel">
+      <div class="kicker"></div>
+      <h2>Information</h2>
+      <div class="list">
+        <div>
+          <h3>Hur levereras spelet efter betalning?</h3>
+          <div class="note">Du kommer ladda ner spelet direkt efter betalning. Instruktioner för nedladdning/aktivering följer där.</div>
+        </div>
+        <div>
+          <h3>Kommer det komma uppdateringar?</h3>
+          <div class="note">Ja. Uppdateringar med förbättringar och nytt innehåll kommer komma.</div>
+        </div>
+        <div>
+          <h3>Refund-policy?</h3>
+          <div class="note">Kontakta oss med ditt order-ID om något blir fel. Om produkten inte har några problem och funkar som den ska får man ingen återbetalning via 2 kapitlet 11§ Distansavtalslagen (2005:59)</div>
+        </div>
+      </div>
+    </section>
 
-  <div class="mt-10">
-    <a href="#preorder" class="hover-scale inline-block bg-blue-600 text-white font-bold py-3 px-8 rounded-full text-lg">🎁 Köp Nu</a>
+    <!-- Call to action -->
+    <section class="section panel">
+      <h2>Redo att köra?</h2>
+      <div class="note">Gå till betalning för att säkra din kopia av Island Of Vehicles.</div>
+      <div style="margin-top:12px">
+        <!-- Pay Button (oförändrad) -->
+        <div>
+          <style>
+            .pp-Q7PYPDX47Y2SJ{
+              text-align:center;border:none;border-radius:0.25rem;min-width:11.625rem;padding:0 2rem;height:2.625rem;font-weight:bold;background-color:#FFD140;color:#000000;font-family:"Helvetica Neue",Arial,sans-serif;font-size:1rem;line-height:1.25rem;cursor:pointer;
+            }
+          </style>
+          <form action="https://www.paypal.com/ncp/payment/Q7PYPDX47Y2SJ" method="post" target="_blank" style="display:inline-grid;justify-items:center;align-content:start;gap:0.5rem;">
+            <input class="pp-Q7PYPDX47Y2SJ" type="submit" value="Betala nu" />
+            <img src="https://www.paypalobjects.com/images/Debit_Credit_APM.svg" alt="cards" />
+            <section style="font-size: 0.75rem;">
+              Tillhandahålls av
+              <img src="https://www.paypalobjects.com/paypal-ui/logos/svg/paypal-wordmark-color.svg" alt="paypal" style="height:0.875rem;vertical-align:middle;"/>
+            </section>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="grid-2">
+        <div>
+          <div class="small">© <span id="y"></span> Windskore. Alla rättigheter reserverade.</div>
+          <div class="small"></div>
+        </div>
+        <div class="small" style="text-align:right">
+          <a href="#!" aria-label="Användarvillkor">Villkor</a> ·
+          <a href="#!" aria-label="Integritetspolicy">Integritet</a> ·
+          <a href="#!" aria-label="Kontakt">Kontakt</a>
+        </div>
+      </div>
+    </footer>
   </div>
-</section>
-
-<!-- KÖP -->
-  
-<div>
-  <style>.pp-Q7PYPDX47Y2SJ{text-align:center;border:none;border-radius:0.25rem;min-width:11.625rem;padding:0 2rem;height:2.625rem;font-weight:bold;background-color:#FFD140;color:#000000;font-family:"Helvetica Neue",Arial,sans-serif;font-size:1rem;line-height:1.25rem;cursor:pointer;}</style>
-  <form action="https://www.paypal.com/ncp/payment/Q7PYPDX47Y2SJ" method="post" target="_blank" style="display:inline-grid;justify-items:center;align-content:start;gap:0.5rem;">
-    <input class="pp-Q7PYPDX47Y2SJ" type="submit" value="Betala nu" />
-    <img src=https://www.paypalobjects.com/images/Debit_Credit_APM.svg alt="cards" />
-    <section style="font-size: 0.75rem;"> Tillhandahålls av <img src="https://www.paypalobjects.com/paypal-ui/logos/svg/paypal-wordmark-color.svg" alt="paypal" style="height:0.875rem;vertical-align:middle;"/></section>
-  </form>
-</div>
-
-<!-- FOOTER -->
-<footer class="text-center py-6 text-gray-500 mt-10">
-  <p>© 2025 Island Of Vehicles – Windskore • God Jul 🎄</p>
-</footer>
-
-<div id="paypal-container-Q7PYPDX47Y2SJ"></div>
-<script>
-  paypal.HostedButtons({
-    hostedButtonId: "Q7PYPDX47Y2SJ",
-  }).render("#paypal-container-Q7PYPDX47Y2SJ")
-</script</body>
+  <script>
+    // Set current year
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/6800b82fc5e333190b5b7845/1ip1cuv4g';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
+</body>
 </html>
-
-
-
-
-
-
-
-
-
