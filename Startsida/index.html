@@ -222,20 +222,6 @@
   })();
 </script>
 
-<!-- CAPTCHA JS -->
-<script>
-  const enterBtn = document.getElementById("enterBtn");
-  const captchaOverlay = document.getElementById("captchaOverlay");
-
-  enterBtn.addEventListener("click", () => {
-    const response = grecaptcha.getResponse();
-    if(response.length === 0){
-      alert("✅ Vänligen verifiera reCAPTCHA först!");
-    } else {
-      captchaOverlay.style.display = "none"; // göm overlay och släpp in användaren
-    }
-  });
-</script>
-
 </body>
 </html>
+
