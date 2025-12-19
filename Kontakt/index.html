@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kontakta oss – Windskore</title>
+  <style>
+    /* ====== Basstil ====== */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f5f5f5;
+      color: #333;
+    }
+
+    header {
+      background: #1a1a1a;
+      color: #fff;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      margin-top: 0;
+      color: #1a1a1a;
+    }
+
+    /* ====== Kontaktinfo ====== */
+    .contact-info {
+      margin-bottom: 2rem;
+    }
+    .contact-info p {
+      margin: 0.5rem 0;
+    }
+
+    /* ====== Formulär ====== */
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      margin: 0.5rem 0 0.2rem;
+      font-weight: bold;
+    }
+
+    input, textarea {
+      padding: 0.8rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1rem;
+      width: 100%;
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    button {
+      margin-top: 1rem;
+      padding: 1rem;
+      background: #1a73e8;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: #0c5fd1;
+    }
+
+    /* ====== Responsiv ====== */
+    @media (max-width: 600px) {
+      .container {
+        padding: 1rem;
+      }
+    }
+
+    /* ====== Meddelande ====== */
+    .message {
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Kontakta Windskore</h1>
+    <p>Vi ser fram emot att höra från dig!</p>
+  </header>
+
+  <div class="container">
+    <section class="contact-info">
+      <h2>Kontaktinformation</h2>
+      <p>📧 E-post: <a href="mailto:support@windskore.se">support@windskore.se</a></p>
+      <p>📍 Adress: Hedemora, Sverige</p>
+      <p>📞 Telefon: +46 (0)70-123 45 67</p>
+    </section>
+
+    <section class="contact-form">
+      <h2>Skicka ett meddelande</h2>
+      <form id="contactForm">
+        <label for="name">Namn</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">E-post</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="subject">Ämne</label>
+        <input type="text" id="subject" name="subject" required>
+
+        <label for="message">Meddelande</label>
+        <textarea id="message" name="message" required></textarea>
+
+        <button type="submit">Skicka</button>
+        <p class="message" id="formMessage"></p>
+      </form>
+    </section>
+  </div>
+
+  <script>
+    // Enkel validering och feedback
+    const form = document.getElementById('contactForm');
+    const formMessage = document.getElementById('formMessage');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      // Hämta värden
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const subject = document.getElementById('subject').value.trim();
+      const message = document.getElementById('message').value.trim();
+
+      if (!name || !email || !subject || !message) {
+        formMessage.textContent = "⚠️ Vänligen fyll i alla fält.";
+        formMessage.style.color = "red";
+        return;
+      }
+
+      // Här kan du koppla till backend / e-post API
+      formMessage.textContent = "✅ Tack för ditt meddelande, vi återkommer snart!";
+      formMessage.style.color = "green";
+
+      form.reset();
+    });
+  </script>
+</body>
+</html>
