@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spel</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #111;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        h1 {
+            margin-top: 40px;
+            font-size: 48px;
+            letter-spacing: 2px;
+        }
+
+        .divider {
+            width: 60%;
+            height: 2px;
+            background: #444;
+            margin: 20px auto 40px auto;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            padding-bottom: 60px;
+        }
+
+        .card {
+            width: 300px;
+            height: 180px;
+            background: #1a1a1a;
+            border: 2px solid #333;
+            border-radius: 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 28px;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+            transition: 0.2s;
+        }
+
+        .card:hover {
+            border-color: #0078ff;
+            transform: scale(1.05);
+            background: #222;
+        }
+
+        @media (max-width: 700px) {
+            .card {
+                width: 80%;
+                height: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>SPEL</h1>
+    <div class="divider"></div>
+
+    <div class="container">
+        <!-- Lägg till fler spel här -->
+        <a class="card" href="#">Ditt första spel</a>
+        <a class="card" href="#">Ditt andra spel</a>
+    </div>
+
+</body>
+</html>
