@@ -4,24 +4,23 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Windskore Games</title>
-  &nbsp;&nbsp;<link rel="icon" type="image/png" href="favicon.png">
+  <link rel="icon" type="image/png" href="favicon.png">
 
   <style>
-    /* ------------------------------
-       ROOT & GLOBAL
-    ------------------------------ */
+    /* --------------------------------------------------
+       ROOT
+    -------------------------------------------------- */
     :root {
       --bg: #020712;
-      --bg-panel: rgba(10, 20, 40, 0.85);
-      --bg-strong: rgba(10, 20, 40, 0.95);
+      --panel: rgba(15, 25, 45, 0.75);
+      --panel-strong: rgba(15, 25, 45, 0.92);
       --accent: #3aa6ff;
       --accent-strong: #4fd1ff;
       --text: #f5f7ff;
       --text-muted: #9aa4c2;
-      --border: rgba(255, 255, 255, 0.08);
-      --radius: 20px;
-      --shadow: 0 24px 60px rgba(0, 0, 0, 0.65);
-      --blur: 26px;
+      --radius: 22px;
+      --shadow: 0 30px 80px rgba(0,0,0,0.65);
+      --blur: 28px;
     }
 
     * {
@@ -32,7 +31,7 @@
 
     body {
       font-family: "Segoe UI", system-ui, sans-serif;
-      background: radial-gradient(circle at top, #07142b 0, #020712 45%, #000 100%);
+      background: radial-gradient(circle at top, #0a1530 0, #020712 50%, #000 100%);
       color: var(--text);
       overflow-x: hidden;
     }
@@ -42,16 +41,16 @@
       text-decoration: none;
     }
 
-    /* ------------------------------
-       BACKGROUND EFFECTS
-    ------------------------------ */
+    /* --------------------------------------------------
+       BACKGROUND ORBITS
+    -------------------------------------------------- */
     .bg-orbit {
       position: fixed;
       inset: -20%;
       background:
-        radial-gradient(circle at 10% 0%, rgba(58, 166, 255, 0.18) 0, transparent 55%),
-        radial-gradient(circle at 90% 10%, rgba(79, 209, 255, 0.16) 0, transparent 55%),
-        radial-gradient(circle at 50% 100%, rgba(0, 180, 255, 0.12) 0, transparent 60%);
+        radial-gradient(circle at 10% 0%, rgba(58,166,255,0.18) 0, transparent 55%),
+        radial-gradient(circle at 90% 10%, rgba(79,209,255,0.16) 0, transparent 55%),
+        radial-gradient(circle at 50% 100%, rgba(0,180,255,0.12) 0, transparent 60%);
       animation: float 26s ease-in-out infinite alternate;
       pointer-events: none;
       z-index: -2;
@@ -63,68 +62,78 @@
       100% { transform: translateY(10px) scale(1.01); }
     }
 
-    /* ------------------------------
+    /* --------------------------------------------------
        NAVIGATION
-    ------------------------------ */
+    -------------------------------------------------- */
     header {
       position: sticky;
       top: 0;
-      backdrop-filter: blur(18px);
-      background: rgba(2, 7, 18, 0.75);
-      border-bottom: 1px solid var(--border);
-      z-index: 20;
+      backdrop-filter: blur(20px);
+      background: rgba(2, 7, 18, 0.65);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      z-index: 50;
     }
 
     nav {
-      max-width: 1200px;
+      max-width: 1300px;
       margin: auto;
-      padding: 14px 20px;
+      padding: 18px 22px;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
 
+    .logo {
+      font-size: 1.6rem;
+      font-weight: 700;
+      background: linear-gradient(120deg, #fff, #4fd1ff);
+      -webkit-background-clip: text;
+      color: transparent;
+      letter-spacing: 0.5px;
+    }
+
     .nav-links {
       display: flex;
-      gap: 20px;
+      gap: 22px;
     }
 
     .nav-links a {
-      color: var(--text-muted);
-      padding: 6px 10px;
+      padding: 8px 14px;
       border-radius: 999px;
+      color: var(--text-muted);
       transition: 0.2s;
+      font-size: 0.95rem;
     }
 
     .nav-links a:hover {
-      background: rgba(58, 166, 255, 0.12);
+      background: rgba(58,166,255,0.12);
       color: var(--text);
     }
 
-    /* ------------------------------
+    /* --------------------------------------------------
        HERO
-    ------------------------------ */
+    -------------------------------------------------- */
     .hero {
-      max-width: 1200px;
-      margin: 40px auto;
+      max-width: 1300px;
+      margin: 60px auto;
       padding: 20px;
       display: grid;
       grid-template-columns: 1.2fr 1fr;
-      gap: 30px;
+      gap: 35px;
     }
 
     .hero-panel {
-      background: var(--bg-panel);
-      border: 1px solid var(--border);
+      background: var(--panel);
+      border: 1px solid rgba(255,255,255,0.06);
       border-radius: var(--radius);
-      padding: 30px;
+      padding: 35px;
       box-shadow: var(--shadow);
       backdrop-filter: blur(var(--blur));
     }
 
     .hero-title {
-      font-size: 2.4rem;
-      margin-bottom: 10px;
+      font-size: 2.8rem;
+      margin-bottom: 12px;
       background: linear-gradient(120deg, #fff, #4fd1ff);
       -webkit-background-clip: text;
       color: transparent;
@@ -132,124 +141,144 @@
 
     .hero-sub {
       color: var(--text-muted);
-      margin-bottom: 20px;
-      max-width: 500px;
+      margin-bottom: 25px;
+      font-size: 1.1rem;
+      line-height: 1.5;
     }
 
     .btn {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 10px 18px;
+      padding: 12px 22px;
       border-radius: 999px;
-      font-size: 0.9rem;
+      font-size: 1rem;
       cursor: pointer;
       transition: 0.2s;
       border: 1px solid transparent;
+      font-weight: 600;
     }
 
     .btn-primary {
       background: linear-gradient(135deg, #3aa6ff, #4fd1ff);
       color: #020712;
-      font-weight: 600;
     }
 
     .btn-primary:hover {
       transform: translateY(-2px);
-      box-shadow: 0 10px 30px rgba(79, 209, 255, 0.6);
+      box-shadow: 0 12px 35px rgba(79,209,255,0.55);
     }
 
     .btn-ghost {
-      background: rgba(2, 7, 18, 0.7);
-      border: 1px solid var(--border);
+      background: rgba(2,7,18,0.7);
+      border: 1px solid rgba(255,255,255,0.06);
       color: var(--text);
     }
 
     .btn-ghost:hover {
-      background: rgba(10, 20, 40, 0.95);
+      background: rgba(10,20,40,0.95);
     }
 
-    /* ------------------------------
+    /* --------------------------------------------------
        SECTIONS
-    ------------------------------ */
+    -------------------------------------------------- */
     section {
-      max-width: 1200px;
-      margin: 60px auto;
+      max-width: 1300px;
+      margin: 70px auto;
       padding: 0 20px;
     }
 
     .section-title {
-      font-size: 1.4rem;
-      margin-bottom: 10px;
-      letter-spacing: 0.05em;
+      font-size: 1.6rem;
+      margin-bottom: 15px;
+      letter-spacing: 0.06em;
       color: var(--text-muted);
       text-transform: uppercase;
     }
 
     .cards {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
     }
 
     .card {
-      background: var(--bg-panel);
-      border: 1px solid var(--border);
+      background: var(--panel);
+      border: 1px solid rgba(255,255,255,0.06);
       border-radius: var(--radius);
-      padding: 20px;
+      padding: 25px;
       box-shadow: var(--shadow);
       backdrop-filter: blur(var(--blur));
     }
 
     .card h3 {
-      margin-bottom: 8px;
+      margin-bottom: 10px;
+      font-size: 1.3rem;
     }
 
     .card p {
       color: var(--text-muted);
-      font-size: 0.9rem;
+      font-size: 1rem;
+      line-height: 1.5;
     }
 
-    /* ------------------------------
-       CONTACT (NO FORM)
-    ------------------------------ */
+    /* --------------------------------------------------
+       CONTACT
+    -------------------------------------------------- */
     .contact-box {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 20px;
+      gap: 25px;
     }
 
     .contact-item {
-      background: var(--bg-panel);
-      border: 1px solid var(--border);
+      background: var(--panel);
+      border: 1px solid rgba(255,255,255,0.06);
       border-radius: var(--radius);
-      padding: 20px;
+      padding: 25px;
       box-shadow: var(--shadow);
     }
 
     .contact-item strong {
       color: var(--text);
+      font-size: 1.1rem;
     }
 
-    /* ------------------------------
+    /* --------------------------------------------------
        FOOTER
-    ------------------------------ */
+    -------------------------------------------------- */
     footer {
-      max-width: 1200px;
-      margin: 40px auto;
+      max-width: 1300px;
+      margin: 50px auto;
       padding: 20px;
       text-align: center;
       color: var(--text-muted);
-      font-size: 0.85rem;
+      font-size: 0.9rem;
     }
 
-    /* ------------------------------
-       RESPONSIVE
-    ------------------------------ */
+    /* --------------------------------------------------
+       MOBILE
+    -------------------------------------------------- */
     @media (max-width: 900px) {
       .hero {
         grid-template-columns: 1fr;
+        margin-top: 30px;
       }
+
+      .hero-title {
+        font-size: 2.3rem;
+      }
+
+      nav {
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
       .contact-box {
         grid-template-columns: 1fr;
       }
@@ -281,7 +310,7 @@
         Windskore Games är en spelstudio som utvecklar spel som Island Of Vehicles.
       </p>
 
-      <div style="display:flex; gap:10px;">
+      <div style="display:flex; gap:12px; flex-wrap:wrap;">
         <a class="btn btn-primary" href="/games">Utforska spelen</a>
         <a class="btn btn-ghost" href="#contact">Kontakt</a>
       </div>
@@ -289,7 +318,7 @@
 
     <div class="hero-panel">
       <h3>Island Of Vehicles</h3>
-      <p>Ön är inspererad av staden Hedemora/Dalarna. Hus och byggnader är inte samma men 99% av alla vägar är.</p>
+      <p>Ön är inspirerad av staden Hedemora/Dalarna. Hus och byggnader är inte samma men 99% av alla vägar är.</p>
       <br>
       <a class="btn btn-primary" href="/Island-Of-Vehicles">Köp Nu</a>
     </div>
@@ -303,10 +332,9 @@
       <div class="card">
         <h3>Island Of Vehicles</h3>
         <p>En ö med hemligheter och missions.</p>
-        <p>⠀</p>
-       <a class="btn btn-primary" href="/Island-Of-Vehicles">Köp Nu</a>
+        <br>
+        <a class="btn btn-primary" href="/Island-Of-Vehicles">Köp Nu</a>
       </div>
-
     </div>
   </section>
 
@@ -351,7 +379,7 @@
     <div class="contact-box">
       <div class="contact-item">
         <strong>E‑post</strong><br>
-        support@windskore.se
+        <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="94e7e1e4e4fbe6e0d4e3fdfaf0e7fffbe6f1bae7f1">[email&#160;protected]</a>
       </div>
 
       <div class="contact-item">
@@ -369,18 +397,19 @@
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
-<!--Start of Tawk.to Script-->
-<script type="text/javascript">
-var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-(function(){
-var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-s1.async=true;
-s1.src='https://embed.tawk.to/6800b82fc5e333190b5b7845/1ip1cuv4g';
-s1.charset='UTF-8';
-s1.setAttribute('crossorigin','*');
-s0.parentNode.insertBefore(s1,s0);
-})();
-</script>
-<!--End of Tawk.to Script-->
+
+  <!-- Tawk.to -->
+  <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+      var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+      s1.async=true;
+      s1.src='https://embed.tawk.to/6800b82fc5e333190b5b7845/1ip1cuv4g';
+      s1.charset='UTF-8';
+      s1.setAttribute('crossorigin','*');
+      s0.parentNode.insertBefore(s1,s0);
+    })();
+  </script>
+
 </body>
 </html>
