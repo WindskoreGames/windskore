@@ -2,10 +2,105 @@
 <html lang="sv">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="0; url=/Startsida">
-    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Välj Varumärke</title>
+
+    <style>
+        body {
+            margin: 0;
+            background: #0d0d0d;
+            color: white;
+            font-family: 'Segoe UI', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Center container */
+        .brand-selector {
+            text-align: center;
+            padding-top: 100px;
+            padding-bottom: 80px;
+        }
+
+        .brand-selector h1 {
+            font-size: 48px;
+            font-weight: 600;
+            margin-bottom: 50px;
+        }
+
+        /* Brand list */
+        .brand-list {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        /* Brand card */
+        .brand-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            width: 280px;
+            padding: 25px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: 0.25s ease;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        .brand-card:hover {
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .brand-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 14px;
+        }
+
+        .brand-card p {
+            margin-top: 18px;
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        /* Fade-in animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .brand-card {
+            animation: fadeIn 0.6s ease forwards;
+        }
+    </style>
 </head>
+
 <body>
-    <p>Om du inte omdirigeras automatiskt, <a href="/Startsida">klicka här</a>.</p>
+
+    <div class="brand-selector">
+        <h1>Välj varumärke</h1>
+
+        <div class="brand-list">
+
+            <!-- Windskore Games -->
+            <div class="brand-card" onclick="openBrand('windskore')">
+                <img src="WindskoreGames.png" alt="windskoregames.se">
+                <p>Windskore Games</p>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        function openBrand(brand) {
+            if (brand === "windskore") {
+                window.location.href = "/WindskoreGames/";
+                // Ändra till exakt sida du vill länka till
+            }
+        }
+    </script>
+
 </body>
 </html>
