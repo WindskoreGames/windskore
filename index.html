@@ -1,124 +1,34 @@
 <!doctype html>
-<html lang="en-US">
+<html lang="sv">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Windskore</title>
+  <title>Redirecting...</title>
 
-  <!-- Tailwind CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Direkt redirect -->
+  <meta http-equiv="refresh" content="0; url=/Startsida" />
 
-  <!-- Framer Motion (via CDN alternative animation trick) -->
-  <script src="https://unpkg.com/scrollreveal"></script>
+  <!-- Fallback via JavaScript -->
+  <script>
+    window.location.href = "/Startsida";
+  </script>
 
   <style>
     body {
-      font-family: system-ui, sans-serif;
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: Arial, sans-serif;
+      background: #0f172a;
+      color: white;
     }
   </style>
 </head>
-
-<body class="bg-gradient-to-b from-indigo-500 via-purple-600 to-pink-500 text-white overflow-x-hidden">
-
-  <!-- glow orbs -->
-  <div class="fixed inset-0 pointer-events-none">
-    <div class="absolute w-96 h-96 bg-white/20 blur-3xl rounded-full top-10 left-10 animate-pulse"></div>
-    <div class="absolute w-[30rem] h-[30rem] bg-yellow-300/20 blur-3xl rounded-full bottom-10 right-10 animate-pulse"></div>
+<body>
+  <div>
+    🚀 Tar dig till startsidan...
   </div>
-
-  <!-- NAV -->
-  <nav class="flex items-center justify-between px-8 py-6 relative z-10">
-    <div class="text-2xl font-bold">Windskore</div>
-    <button class="bg-white text-black px-5 py-2 rounded-full font-semibold hover:scale-105 transition">
-      Kom igång
-    </button>
-  </nav>
-
-  <!-- HERO -->
-  <header class="text-center px-6 py-28 relative z-10">
-    <h1 class="text-6xl md:text-8xl font-extrabold" id="title">Windskore</h1>
-    <p class="mt-6 text-xl md:text-2xl text-white/90 max-w-2xl mx-auto">
-      Spel som inte bara spelas — de lever, andas och utvecklas 🌌
-    </p>
-
-    <button class="mt-10 bg-white text-black px-8 py-4 rounded-2xl font-semibold hover:scale-105 transition">
-      Utforska universum
-    </button>
-  </header>
-
-  <!-- FEATURES -->
-  <section class="grid md:grid-cols-4 gap-6 px-8 py-20 max-w-6xl mx-auto relative z-10">
-
-    <div class="bg-white/10 border border-white/20 backdrop-blur-xl p-6 rounded-2xl">
-      🚀
-      <h3 class="text-xl font-semibold mt-2">Innovation</h3>
-      <p class="text-white/80 mt-2">Vi pushar gränserna för spel.</p>
-    </div>
-
-    <div class="bg-white/10 border border-white/20 backdrop-blur-xl p-6 rounded-2xl">
-      🎮
-      <h3 class="text-xl font-semibold mt-2">Spel</h3>
-      <p class="text-white/80 mt-2">Roblox, UE5 och mer.</p>
-    </div>
-
-    <div class="bg-white/10 border border-white/20 backdrop-blur-xl p-6 rounded-2xl">
-      🌍
-      <h3 class="text-xl font-semibold mt-2">Community</h3>
-      <p class="text-white/80 mt-2">Byggt tillsammans med spelare.</p>
-    </div>
-
-    <div class="bg-white/10 border border-white/20 backdrop-blur-xl p-6 rounded-2xl">
-      ✨
-      <h3 class="text-xl font-semibold mt-2">Magi</h3>
-      <p class="text-white/80 mt-2">Varje projekt är en ny värld.</p>
-    </div>
-
-  </section>
-
-  <!-- ABOUT -->
-  <section class="text-center px-8 py-24 max-w-3xl mx-auto relative z-10">
-    <h2 class="text-4xl font-bold">Om Windskore</h2>
-    <p class="mt-6 text-white/80 text-lg">
-      Windskore skapar spelvärldar där spelare kan utforska, bygga och leva sina egna äventyr.
-    </p>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="text-center py-10 text-white/60 relative z-10">
-    © <span id="year"></span> Windskore
-  </footer>
-
-  <!-- Tawk.to -->
-  <script>
-    window.Tawk_API = window.Tawk_API || {};
-    window.Tawk_LoadStart = new Date();
-
-    (function () {
-      var s1 = document.createElement("script");
-      var s0 = document.getElementsByTagName("script")[0];
-
-      s1.async = true;
-      s1.src = "https://embed.tawk.to/6800b82fc5e333190b5b7845/1ip1cuv4g";
-      s1.charset = "UTF-8";
-      s1.setAttribute("crossorigin", "*");
-
-      s0.parentNode.insertBefore(s1, s0);
-    })();
-  </script>
-
-  <!-- tiny animations -->
-  <script>
-    document.getElementById("year").innerText = new Date().getFullYear();
-
-    ScrollReveal().reveal("h1, p, button, .grid div", {
-      delay: 200,
-      distance: "40px",
-      origin: "bottom",
-      interval: 100
-    });
-  </script>
-
-  
-
 </body>
 </html>
