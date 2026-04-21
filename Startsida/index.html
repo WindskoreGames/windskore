@@ -10,17 +10,20 @@
     /* --------------------------------------------------
        ROOT
     -------------------------------------------------- */
-    :root {
-      --bg: #020712;
-      --panel: rgba(15, 25, 45, 0.75);
-      --panel-strong: rgba(15, 25, 45, 0.92);
-      --accent: #3aa6ff;
-      --accent-strong: #4fd1ff;
-      --text: #f5f7ff;
-      --text-muted: #9aa4c2;
+:root {
+      --bg: #fff7e6;
+      --panel: rgba(255, 255, 255, 0.75);
+      --panel-strong: rgba(255, 255, 255, 0.9);
+
+      --accent: #ff7a59;
+      --accent-strong: #ffb347;
+
+      --text: #1e1e2a;
+      --text-muted: #5a5a6e;
+
       --radius: 22px;
-      --shadow: 0 30px 80px rgba(0,0,0,0.65);
-      --blur: 28px;
+      --shadow: 0 25px 60px rgba(0,0,0,0.15);
+      --blur: 18px;
     }
 
     * {
@@ -31,34 +34,34 @@
 
     body {
       font-family: "Segoe UI", system-ui, sans-serif;
-      background: radial-gradient(circle at top, #0a1530 0, #020712 50%, #000 100%);
+      background: linear-gradient(180deg, #87cefa 0%, #fff7e6 40%, #ffe0a3 100%);
       color: var(--text);
       overflow-x: hidden;
     }
 
     a {
-      color: var(--accent-strong);
+      color: var(--accent);
       text-decoration: none;
     }
 
     /* --------------------------------------------------
-       BACKGROUND ORBITS
+       SUN + SUMMER GLOW ☀️
     -------------------------------------------------- */
     .bg-orbit {
       position: fixed;
-      inset: -20%;
+      inset: -30%;
       background:
-        radial-gradient(circle at 10% 0%, rgba(58,166,255,0.18) 0, transparent 55%),
-        radial-gradient(circle at 90% 10%, rgba(79,209,255,0.16) 0, transparent 55%),
-        radial-gradient(circle at 50% 100%, rgba(0,180,255,0.12) 0, transparent 60%);
-      animation: float 26s ease-in-out infinite alternate;
+        radial-gradient(circle at 50% 20%, rgba(255, 200, 80, 0.6) 0%, transparent 40%),
+        radial-gradient(circle at 20% 40%, rgba(255, 140, 90, 0.25) 0%, transparent 60%),
+        radial-gradient(circle at 80% 60%, rgba(255, 180, 100, 0.2) 0%, transparent 55%);
+      animation: float 18s ease-in-out infinite alternate;
       pointer-events: none;
       z-index: -2;
     }
 
     @keyframes float {
       0% { transform: translateY(0) scale(1); }
-      50% { transform: translateY(-20px) scale(1.03); }
+      50% { transform: translateY(-15px) scale(1.02); }
       100% { transform: translateY(10px) scale(1.01); }
     }
 
