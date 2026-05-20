@@ -411,15 +411,25 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
-  <footer>
-    <strong>© <span id="year"></span> Windskore. Alla rättigheter förbehållna.</strong><br>
-    <strong>Sverige, Hedemora, Östra Järnvägsgatan 11</strong><br>
-  </footer>
+<!-- FOOTER -->
+<footer>
+  <strong>© <span id="year"></span> Windskore. Alla rättigheter förbehållna.</strong><br>
+  <strong>Sverige, Hedemora, Östra Järnvägsgatan 11</strong><br>
 
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+  <div style="margin-top: 8px;">
+    <a href="/användarvillkor" style="color: inherit; text-decoration: underline;">
+      Användarvillkor (ToS)
+    </a>
+    &nbsp;|&nbsp;
+    <a href="/integritetspolicy" style="color: inherit; text-decoration: underline;">
+      Integritetspolicy
+    </a>
+  </div>
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 
   <!-- Tawk.to -->
   <script type="text/javascript">
