@@ -120,43 +120,50 @@
     </header>
 
     <!-- Trailer + Buy -->
-    <section class="section grid-2">
-      <div class="panel trailer">
-        <h2>Launch trailer</h2>
-        <!-- Launch Trailer -->
-        <div style="position:relative; width:100%; height:0px; padding-bottom:56.250%">
-<iframe src="https://1drv.ms/v/c/e6efb906553240fe/IQShrCmNJtZNQ4slQffjn5WxAaEaI-979Bmu8y5lj36nWew" width="320" height="320" frameborder="0" scrolling="no" allowfullscreen></iframe>
-        </div>
+<section class="section grid-2">
+  <div class="panel trailer">
+    <h2>Launch trailer</h2>
+
+    <!-- Launch Trailer -->
+    <div style="position:relative; width:100%; height:0px; padding-bottom:56.250%">
+      <iframe src="https://1drv.ms/v/c/e6efb906553240fe/IQShrCmNJtZNQ4slQffjn5WxAaEaI-979Bmu8y5lj36nWew"
+        width="320"
+        height="320"
+        frameborder="0"
+        scrolling="no"
+        allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+
+  <div class="panel buy shadow-amber">
+    <div class="kicker">Köp nu</div>
+    <h2>99kr</h2>
+
+    <div class="price-row">
+      <div class="chip">Betala säkert med kort</div>
+    </div>
+
+    <div class="note"></div>
+
+    <div class="pay-panel">
+
+      <!-- Stripe -->
+      <script async src="https://js.stripe.com/v3/buy-button.js"></script>
+
+      <stripe-buy-button
+        buy-button-id="buy_btn_1TZcQx47Kdo1X0NucY79yKgv"
+        publishable-key="pk_live_51TSwQa47Kdo1X0Nuuxfmf3lFQNi3rgOoRQrfBZCQmjLb4csNy7C8YO1PYZIJbI7OYQSS7KZV23IPjtvnRCC2KgT9001IsUW5zm"
+      >
+      </stripe-buy-button>
+
+      <div class="small note">
+        Genom att köpa Island Of Vehicles godkänner du Windskore ToS och Sekretesspolicy, samt Island Of Vehicles EULA
       </div>
 
-      <div class="panel buy shadow-amber">
-        <div class="kicker">Köp nu</div>
-        <h2>149kr</h2>
-        <div class="price-row">
-          <div class="chip">Betala med PayPal, kort m.m</div>
-        </div>
-        <div class="note"></div>
-        <div class="pay-panel">
-          <!-- Pay Button (oförändrad) -->
-          <div>
-            <style>
-              .pp-Q7PYPDX47Y2SJ{
-                text-align:center;border:none;border-radius:0.25rem;min-width:11.625rem;padding:0 2rem;height:2.625rem;font-weight:bold;background-color:#FFD140;color:#000000;font-family:"Helvetica Neue",Arial,sans-serif;font-size:1rem;line-height:1.25rem;cursor:pointer;
-              }
-            </style>
-            <form action="https://www.paypal.com/ncp/payment/Q7PYPDX47Y2SJ" method="post" target="_blank" style="display:inline-grid;justify-items:center;align-content:start;gap:0.5rem;">
-              <input class="pp-Q7PYPDX47Y2SJ" type="submit" value="Betala nu" />
-              <img src="https://www.paypalobjects.com/images/Debit_Credit_APM.svg" alt="cards" />
-              <section style="font-size: 0.75rem;">
-                Tillhandahålls av
-                <img src="https://www.paypalobjects.com/paypal-ui/logos/svg/paypal-wordmark-color.svg" alt="paypal" style="height:0.875rem;vertical-align:middle;"/>
-              </section>
-            </form>
-          </div>
-          <div class="small note">Genom att köpa Island Of Vehicles godkänner du Windskore ToS och Sekretesspolicy, samt Island Of Vehicles EULA</div>
-        </div>
-      </div>
-    </section>
+    </div>
+  </div>
+</section>
 
     <!-- Why buy -->
     <section class="section panel">
