@@ -1,426 +1,373 @@
 <!DOCTYPE html>
 <html lang="sv">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Windskore Games</title>
-  <link rel="icon" type="image/png" href="favicon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Windskore</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap');
+        
+        :root {
+            --primary: #00f5ff;
+            --accent: #ff00aa;
+            --accent2: #39ff14;
+            --dark: #0f172a;
+            --lightgray: #1e2937;
+            --text: #f1f5f9;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(180deg, #0f172a 0%, #1e2937 100%);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(12px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 245, 255, 0.2);
+        }
+        
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .nav-links a:hover { 
+            color: var(--primary); 
+            text-shadow: 0 0 10px var(--primary);
+        }
 
-  <style>
-    /* --------------------------------------------------
-       ROOT
-    -------------------------------------------------- */
-:root {
-      --bg: #fff7e6;
-      --panel: rgba(255, 255, 255, 0.75);
-      --panel-strong: rgba(255, 255, 255, 0.9);
+        /* Hamburger */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+        
+        .hamburger span {
+            width: 28px;
+            height: 3px;
+            background: var(--primary);
+            transition: 0.3s;
+        }
 
-      --accent: #ff7a59;
-      --accent-strong: #ffb347;
+        /* Animationer */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(60px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
-      --text: #1e1e2a;
-      --text-muted: #5a5a6e;
+        .hero {
+            height: 100vh;
+            min-height: 600px;
+            background: linear-gradient(rgba(15,23,42,0.6), rgba(15,23,42,0.85)), 
+                        url('https://picsum.photos/id/1015/1920/1080') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            padding: 0 1.5rem;
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .hero h1 {
+            font-size: 3.8rem;
+            margin-bottom: 1rem;
+            font-family: 'Playfair Display', serif;
+            background: linear-gradient(90deg, #fff, var(--primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            color: #000;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.4s;
+            box-shadow: 0 8px 25px rgba(0, 245, 255, 0.3);
+        }
+        
+        section {
+            padding: 5rem 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        h2 {
+            font-size: 2.8rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            font-family: 'Playfair Display', serif;
+            background: linear-gradient(90deg, var(--primary), var(--accent2));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
-      --radius: 22px;
-      --shadow: 0 25px 60px rgba(0,0,0,0.15);
-      --blur: 18px;
-    }
+        .games-grid, .features-grid, .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+        .game-card, .feature-card {
+            background: #172033;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(0, 245, 255, 0.15);
+            transition: all 0.4s;
+        }
+        
+        .game-card:hover, .feature-card:hover {
+            transform: translateY(-15px);
+            border-color: var(--primary);
+            box-shadow: 0 20px 40px rgba(0, 245, 255, 0.25);
+        }
 
-    body {
-      font-family: "Segoe UI", system-ui, sans-serif;
-      background: linear-gradient(180deg, #87cefa 0%, #fff7e6 40%, #ffe0a3 100%);
-      color: var(--text);
-      overflow-x: hidden;
-    }
+        .gallery-grid {
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+        }
+        
+        .gallery-img img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+        }
 
-    a {
-      color: var(--accent);
-      text-decoration: none;
-    }
+        footer {
+            background: #0a1321;
+            padding: 3rem 1.5rem 2rem;
+            text-align: center;
+        }
 
-    /* --------------------------------------------------
-       SUN + SUMMER GLOW ☀️
-    -------------------------------------------------- */
-    .bg-orbit {
-      position: fixed;
-      inset: -30%;
-      background:
-        radial-gradient(circle at 50% 20%, rgba(255, 200, 80, 0.6) 0%, transparent 40%),
-        radial-gradient(circle at 20% 40%, rgba(255, 140, 90, 0.25) 0%, transparent 60%),
-        radial-gradient(circle at 80% 60%, rgba(255, 180, 100, 0.2) 0%, transparent 55%);
-      animation: float 18s ease-in-out infinite alternate;
-      pointer-events: none;
-      z-index: -2;
-    }
-
-    @keyframes float {
-      0% { transform: translateY(0) scale(1); }
-      50% { transform: translateY(-15px) scale(1.02); }
-      100% { transform: translateY(10px) scale(1.01); }
-    }
-
-    /* --------------------------------------------------
-       NAVIGATION
-    -------------------------------------------------- */
-    header {
-      position: sticky;
-      top: 0;
-      backdrop-filter: blur(20px);
-      background: rgba(2, 7, 18, 0.65);
-      border-bottom: 1px solid rgba(255,255,255,0.05);
-      z-index: 50;
-    }
-
-    nav {
-      max-width: 1300px;
-      margin: auto;
-      padding: 18px 22px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo {
-      font-size: 1.6rem;
-      font-weight: 700;
-      background: linear-gradient(120deg, #fff, #4fd1ff);
-      -webkit-background-clip: text;
-      color: transparent;
-      letter-spacing: 0.5px;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 22px;
-    }
-
-    .nav-links a {
-      padding: 8px 14px;
-      border-radius: 999px;
-      color: var(--text-muted);
-      transition: 0.2s;
-      font-size: 0.95rem;
-    }
-
-    .nav-links a:hover {
-      background: rgba(58,166,255,0.12);
-      color: var(--text);
-    }
-
-    /* --------------------------------------------------
-       HERO
-    -------------------------------------------------- */
-    .hero {
-      max-width: 1300px;
-      margin: 60px auto;
-      padding: 20px;
-      display: grid;
-      grid-template-columns: 1.2fr 1fr;
-      gap: 35px;
-    }
-
-    .hero-panel {
-      background: var(--panel);
-      border: 1px solid rgba(255,255,255,0.06);
-      border-radius: var(--radius);
-      padding: 35px;
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(var(--blur));
-    }
-
-    .hero-title {
-      font-size: 2.8rem;
-      margin-bottom: 12px;
-      background: linear-gradient(120deg, #fff, #4fd1ff);
-      -webkit-background-clip: text;
-      color: transparent;
-    }
-
-    .hero-sub {
-      color: var(--text-muted);
-      margin-bottom: 25px;
-      font-size: 1.1rem;
-      line-height: 1.5;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 12px 22px;
-      border-radius: 999px;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: 0.2s;
-      border: 1px solid transparent;
-      font-weight: 600;
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, #3aa6ff, #4fd1ff);
-      color: #020712;
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 12px 35px rgba(79,209,255,0.55);
-    }
-
-    .btn-ghost {
-      background: rgba(2,7,18,0.7);
-      border: 1px solid rgba(255,255,255,0.06);
-      color: var(--text);
-    }
-
-    .btn-ghost:hover {
-      background: rgba(10,20,40,0.95);
-    }
-
-    /* --------------------------------------------------
-       SECTIONS
-    -------------------------------------------------- */
-    section {
-      max-width: 1300px;
-      margin: 70px auto;
-      padding: 0 20px;
-    }
-
-    .section-title {
-      font-size: 1.6rem;
-      margin-bottom: 15px;
-      letter-spacing: 0.06em;
-      color: var(--text-muted);
-      text-transform: uppercase;
-    }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 25px;
-    }
-
-    .card {
-      background: var(--panel);
-      border: 1px solid rgba(255,255,255,0.06);
-      border-radius: var(--radius);
-      padding: 25px;
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(var(--blur));
-    }
-
-    .card h3 {
-      margin-bottom: 10px;
-      font-size: 1.3rem;
-    }
-
-    .card p {
-      color: var(--text-muted);
-      font-size: 1rem;
-      line-height: 1.5;
-    }
-
-    /* --------------------------------------------------
-       CONTACT
-    -------------------------------------------------- */
-    .contact-box {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 25px;
-    }
-
-    .contact-item {
-      background: var(--panel);
-      border: 1px solid rgba(255,255,255,0.06);
-      border-radius: var(--radius);
-      padding: 25px;
-      box-shadow: var(--shadow);
-    }
-
-    .contact-item strong {
-      color: var(--text);
-      font-size: 1.1rem;
-    }
-
-    /* --------------------------------------------------
-       FOOTER
-    -------------------------------------------------- */
-    footer {
-      max-width: 1300px;
-      margin: 50px auto;
-      padding: 20px;
-      text-align: center;
-      color: var(--text-muted);
-      font-size: 0.9rem;
-    }
-
-    /* --------------------------------------------------
-       MOBILE
-    -------------------------------------------------- */
-    @media (max-width: 900px) {
-      .hero {
-        grid-template-columns: 1fr;
-        margin-top: 30px;
-      }
-
-      .hero-title {
-        font-size: 2.3rem;
-      }
-
-      nav {
-        flex-direction: column;
-        gap: 12px;
-      }
-
-      .nav-links {
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-
-      .contact-box {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
+        /* MOBIL STIL */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                height: calc(100vh - 80px);
+                width: 100%;
+                background: rgba(15, 23, 42, 0.98);
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                padding-top: 3rem;
+                transition: 0.4s ease;
+                gap: 2.5rem;
+                font-size: 1.3rem;
+            }
+            
+            .nav-links.active {
+                left: 0;
+            }
+            
+            .hamburger {
+                display: flex;
+            }
+            
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .hero p {
+                font-size: 1.3rem;
+            }
+            
+            section {
+                padding: 4rem 1rem;
+            }
+            
+            h2 {
+                font-size: 2.4rem;
+            }
+            
+            .btn {
+                padding: 1rem 2rem;
+                font-size: 1.05rem;
+            }
+        }
+    </style>
 </head>
+<body>  
+    <header>
+        <nav>
+            <div class="logo">WINDSKORE</div>
+            
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#games">Spel</a></li>
+                <li><a href="#about">Om Oss</a></li>
+                <li><a href="#news">Nyheter</a></li>
+                <li><a href="#contact">Kontakt</a></li>
+            </ul>
+            
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
 
-<body>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Windskore</h1>
+            <p></p>
+            <a href="#games" class="btn">Utforska Spelen</a>
+        </div>
+    </section>
 
-  
+    <section id="about" class="about">
+        <h2 class="animate-on-scroll">Om Windskore</h2>
+        <p class="animate-on-scroll" style="max-width: 800px; margin: 0 auto 3rem; text-align: center; font-size: 1.2rem;">
+            Windskore är en svensk hobbyverksamhet grundat den 7 augusti 2023 med målet att skapa spel, digitala tjänster och lösningar. 
+            Hos Windskore arbetar vi med att utveckla spel, webbplatser och digitala projekt.
+Vårt mål är att skapa produkter som är roliga, användarvänliga och minnesvärda.
+        </p>
+    </section>
 
-  <div class="bg-orbit"></div>
+    <section id="games">
+        <h2 class="animate-on-scroll">Våra Spel</h2>
+        <div class="games-grid">
+            <div class="game-card animate-on-scroll">
+                <img src="" alt="Island Of Vehicles">
+                <div class="game-info" style="padding: 1.5rem;">
+                    <h3 style="color: var(--primary);">Island Of Vehicles</h3>
+                    <p></p>
+                    <p><strong>Status:</strong>Släppt: 2025-12-06</p>
+                    <a href="https://windskore.se/Island-Of-Vehicles/" class="btn" style="margin-top: 1rem; width: 100%; text-align: center;">Skaffa→</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <!-- NAV -->
-  <header>
-    <nav>
-      <div class="logo">Windskore</div>
-      <div class="nav-links">
-        <a href="#games">Spel</a>
-        <a href="#studio">Studion</a>
-        <a href="#updates">Uppdateringar</a>
-        <a href="#contact">Kontakt</a>
-      </div>
-    </nav>
-  </header>
+    <section id="news" class="news">
+        <h2 class="animate-on-scroll">Senaste Nyheterna</h2>
+        <div class="news-item animate-on-scroll" style="background:#172033; padding:2rem; border-radius:16px; margin-bottom:1.5rem;">
+            <h3>Island Of Vehicles: 1.1</h3>
+            <p>2025-12-20</p>
+        </div>
+    </section>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-panel">
-      <h1 class="hero-title">Windskore Games</h1>
-      <p class="hero-sub">
-        Windskore Games är en spelstudio som utvecklar spel som Island Of Vehicles.
-      </p>
+    <section id="contact">
+        <h2 class="animate-on-scroll">Kontakta Oss</h2>
+        <div class="animate-on-scroll" style="text-align:center; background:rgba(255,255,255,0.05); padding:2.5rem; border-radius:20px; max-width:600px; margin:0 auto;">
+            <p style="font-size:1.2rem;">E-post: <a href="mailto:support@windskore.se" style="color:var(--primary);">support@windskore.se</a></p>
+        </div>
+    </section>
 
-      <div style="display:flex; gap:12px; flex-wrap:wrap;">
-        <a class="btn btn-primary" href="#games">Utforska spelen</a>
-        <a class="btn btn-ghost" href="#contact">Kontakt</a>
-      </div>
-    </div>
+    <footer>
+        <div class="logo" style="font-size:2rem; margin-bottom:1rem;">WINDSKORE</div>
+        <p>&copy; 2026 Windskore. Alla rättigheter förbehållna.</p>
+    </footer>
 
-    <div class="hero-panel">
-      <h3>Island Of Vehicles</h3>
-      <p>Ön är inspirerad av staden Hedemora/Dalarna. Hus och byggnader är inte samma men alla vägar är.</p>
-      <br>
-      <a class="btn btn-primary" href="/Island-Of-Vehicles">Köp Nu</a>
-    </div>
-  </section>
+    <script>
+        // Hamburger menu
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+        
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            
+            // Animera hamburger till X
+            const spans = hamburger.querySelectorAll('span');
+            if (navLinks.classList.contains('active')) {
+                spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+                spans[1].style.opacity = '0';
+                spans[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
+            } else {
+                spans[0].style.transform = 'none';
+                spans[1].style.opacity = '1';
+                spans[2].style.transform = 'none';
+            }
+        });
 
-  <!-- GAMES -->
-  <section id="games">
-    <h2 class="section-title">Spel</h2>
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                if (this.getAttribute('href') !== '#') {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+                    // Stäng menyn på mobil
+                    if (window.innerWidth <= 768) {
+                        navLinks.classList.remove('active');
+                    }
+                }
+            });
+        });
 
-    <div class="cards">
-      <div class="card">
-        <h3>Island Of Vehicles</h3>
-        <p>En ö med hemligheter och missions.</p>
-        <br>
-        <a class="btn btn-primary" href="/Island-Of-Vehicles">Köp Nu</a>
-      </div>
-    </div>
-  </section>
+        // Scroll animationer
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.15 });
 
-  <!-- STUDIO -->
-  <section id="studio">
-    <h2 class="section-title">Studion</h2>
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
 
-    <div class="cards">
-      <div class="card">
-        <h3>Om Windskore</h3>
-        <p>Windskore är en indie‑studio med fokus på spel, datasystem och program.</p>
-      </div>
-
-      <div class="card">
-        <h3></h3>
-        <p></p>
-      </div>
-    </div>
-  </section>
-
-  <!-- UPDATES -->
-  <section id="updates">
-    <h2 class="section-title">Uppdateringar</h2>
-
-    <div class="cards">
-      <div class="card">
-        <h3>1.1 - Island Of Vehicles</h3>
-        <p>Map updates, nytt fordon, julpynt m.m</p>
-      </div>
-
-      <div class="card">
-        <h3>⠀</h3>
-        <p>⠀</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact">
-    <h2 class="section-title">Kontakt</h2>
-
-<div class="contact-box">
-  <div class="contact-item">
-    <strong>E‑post</strong><br>
-    <a href="mailto:support@windskore.se">support@windskore.se</a>
-  </div>
-</div>
-
-      <div class="contact-item">
-        <strong>LiveChatt</strong><br>
-        Livechatta med Windskore live på hemsidan.
-      </div>
-    </div>
-  </section>
-
-<!-- FOOTER -->
-<footer>
-  <strong>© <span id="year"></span> :contentReference[oaicite:0]{index=0}. Alla rättigheter förbehållna.</strong><br>
-  <strong>Sverige, Hedemora, Östra Järnvägsgatan 11</strong><br>
-
-  <div style="margin-top: 8px;">
-    <a href="/användarvillkor" style="color: inherit; text-decoration: underline;">
-      Användarvillkor (ToS)
-    </a>
-    &nbsp;|&nbsp;
-    <a href="/integritetspolicy" style="color: inherit; text-decoration: underline;">
-      Integritetspolicy
-    </a>
-    &nbsp;|&nbsp;
-    <a href="/Returpolicy" style="color: inherit; text-decoration: underline;">
-      Returpolicy
-    </a>
-  </div>
-</footer>
-
-<script>
-  document.getElementById("year").textContent = new Date().getFullYear();
-</script>
-
-  <!-- Tawk.to -->
+<!-- Tawk.to -->
   <script type="text/javascript">
     var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
     (function(){
