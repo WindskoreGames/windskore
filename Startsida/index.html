@@ -1,386 +1,805 @@
 <!DOCTYPE html>
 <html lang="sv">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Windskore</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap');
-        
-        :root {
-            --primary: #00f5ff;
-            --accent: #ff00aa;
-            --accent2: #39ff14;
-            --dark: #0f172a;
-            --lightgray: #1e2937;
-            --text: #f1f5f9;
-        }
-        
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        body {
-            font-family: 'Inter', sans-serif;
-            background: linear-gradient(180deg, #0f172a 0%, #1e2937 100%);
-            color: var(--text);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-        
-        header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(15, 23, 42, 0.95);
-            backdrop-filter: blur(12px);
-            z-index: 1000;
-            border-bottom: 1px solid rgba(0, 245, 255, 0.2);
-        }
-        
-        nav {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            font-weight: 700;
-            background: linear-gradient(90deg, var(--primary), var(--accent));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-        
-        .nav-links a {
-            color: var(--text);
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s;
-        }
-        
-        .nav-links a:hover { 
-            color: var(--primary); 
-            text-shadow: 0 0 10px var(--primary);
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        /* Hamburger */
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            gap: 5px;
-            cursor: pointer;
-        }
-        
-        .hamburger span {
-            width: 28px;
-            height: 3px;
-            background: var(--primary);
-            transition: 0.3s;
-        }
+<title>Windskore | Game Studio</title>
 
-        /* Animationer */
-        .animate-on-scroll {
-            opacity: 0;
-            transform: translateY(60px);
-            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-        
-        .animate-on-scroll.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-        .hero {
-            height: 100vh;
-            min-height: 600px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            position: relative;
-        }
-        
-        .hero-content {
-            max-width: 800px;
-            padding: 0 1.5rem;
-            animation: fadeInUp 1.2s ease forwards;
-        }
-        
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(40px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .hero h1 {
-            font-size: 3.8rem;
-            margin-bottom: 1rem;
-            font-family: 'Playfair Display', serif;
-            background: linear-gradient(90deg, #fff, var(--primary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        
-        .btn {
-            display: inline-block;
-            background: linear-gradient(90deg, var(--primary), var(--accent));
-            color: #000;
-            padding: 1rem 2.5rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 1.1rem;
-            transition: all 0.4s;
-            box-shadow: 0 8px 25px rgba(0, 245, 255, 0.3);
-        }
-        
-        section {
-            padding: 5rem 1.5rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        h2 {
-            font-size: 2.8rem;
-            text-align: center;
-            margin-bottom: 3rem;
-            font-family: 'Playfair Display', serif;
-            background: linear-gradient(90deg, var(--primary), var(--accent2));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+<style>
 
-        .games-grid, .features-grid, .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
+:root {
+    --primary:#00eaff;
+    --secondary:#8b5cf6;
+    --dark:#050816;
+    --card:#111827;
+    --text:#f8fafc;
+    --gray:#94a3b8;
+}
 
-        .game-card, .feature-card {
-            background: #172033;
-            border-radius: 20px;
-            overflow: hidden;
-            border: 1px solid rgba(0, 245, 255, 0.15);
-            transition: all 0.4s;
-        }
-        
-        .game-card:hover, .feature-card:hover {
-            transform: translateY(-15px);
-            border-color: var(--primary);
-            box-shadow: 0 20px 40px rgba(0, 245, 255, 0.25);
-        }
 
-        .gallery-grid {
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1rem;
-        }
-        
-        .gallery-img img {
-            width: 100%;
-            height: auto;
-            border-radius: 12px;
-        }
+* {
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-        footer {
-            background: #0a1321;
-            padding: 3rem 1.5rem 2rem;
-            text-align: center;
-        }
 
-        /* MOBIL STIL */
-        @media (max-width: 768px) {
-            .nav-links {
-                position: fixed;
-                top: 80px;
-                left: -100%;
-                height: calc(100vh - 80px);
-                width: 100%;
-                background: rgba(15, 23, 42, 0.98);
-                flex-direction: column;
-                align-items: center;
-                justify-content: flex-start;
-                padding-top: 3rem;
-                transition: 0.4s ease;
-                gap: 2.5rem;
-                font-size: 1.3rem;
-            }
-            
-            .nav-links.active {
-                left: 0;
-            }
-            
-            .hamburger {
-                display: flex;
-            }
-            
-            .hero h1 {
-                font-size: 2.8rem;
-            }
-            
-            .hero p {
-                font-size: 1.3rem;
-            }
-            
-            section {
-                padding: 4rem 1rem;
-            }
-            
-            h2 {
-                font-size: 2.4rem;
-            }
-            
-            .btn {
-                padding: 1rem 2rem;
-                font-size: 1.05rem;
-            }
-        }
-    </style>
+html {
+    scroll-behavior:smooth;
+}
+
+
+body {
+    font-family:Inter, sans-serif;
+    background:
+    radial-gradient(circle at top,#16213e,#050816 60%);
+    color:var(--text);
+    overflow-x:hidden;
+}
+
+
+/* HEADER */
+
+header {
+
+    position:fixed;
+    width:100%;
+    top:0;
+    z-index:1000;
+
+    background:rgba(5,8,22,.75);
+    backdrop-filter:blur(15px);
+
+    border-bottom:1px solid rgba(255,255,255,.1);
+
+}
+
+
+nav {
+
+    max-width:1200px;
+    margin:auto;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:20px;
+
+}
+
+
+.logo {
+
+    font-size:28px;
+    font-weight:800;
+
+    background:linear-gradient(90deg,var(--primary),var(--secondary));
+    -webkit-background-clip:text;
+    color:transparent;
+
+}
+
+
+
+.nav-links {
+
+    display:flex;
+    gap:35px;
+    list-style:none;
+
+}
+
+
+.nav-links a {
+
+    color:white;
+    text-decoration:none;
+    font-weight:600;
+    transition:.3s;
+
+}
+
+
+.nav-links a:hover {
+
+    color:var(--primary);
+
+}
+
+
+
+.menu {
+
+    display:none;
+    font-size:30px;
+    cursor:pointer;
+
+}
+
+
+
+/* HERO */
+
+
+.hero {
+
+    min-height:100vh;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    text-align:center;
+
+    padding:120px 20px;
+
+}
+
+
+.hero h1 {
+
+    font-size:70px;
+    line-height:1.1;
+
+    background:linear-gradient(90deg,#fff,var(--primary));
+    -webkit-background-clip:text;
+    color:transparent;
+
+}
+
+
+.hero p {
+
+    max-width:700px;
+    margin:30px auto;
+
+    font-size:20px;
+    color:var(--gray);
+
+}
+
+
+
+.btn {
+
+    display:inline-block;
+
+    padding:15px 35px;
+
+    border-radius:50px;
+
+    background:linear-gradient(90deg,var(--primary),var(--secondary));
+
+    color:black;
+
+    font-weight:700;
+
+    text-decoration:none;
+
+    transition:.3s;
+
+}
+
+
+.btn:hover {
+
+    transform:translateY(-5px);
+    box-shadow:0 0 30px var(--primary);
+
+}
+
+
+
+
+/* SECTIONS */
+
+
+section {
+
+    max-width:1200px;
+
+    margin:auto;
+
+    padding:90px 20px;
+
+}
+
+
+
+.title {
+
+    text-align:center;
+    margin-bottom:50px;
+
+}
+
+
+.title span {
+
+    color:var(--primary);
+    font-weight:700;
+
+}
+
+
+.title h2 {
+
+    font-size:45px;
+
+}
+
+
+
+
+
+/* ABOUT */
+
+
+.about-box {
+
+    background:rgba(255,255,255,.05);
+
+    border:1px solid rgba(255,255,255,.1);
+
+    padding:40px;
+
+    border-radius:25px;
+
+    font-size:18px;
+
+    color:#dbeafe;
+
+}
+
+
+
+
+
+/* GAMES */
+
+
+.games {
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+
+    gap:30px;
+
+}
+
+
+
+.card {
+
+    background:var(--card);
+
+    border-radius:25px;
+
+    overflow:hidden;
+
+    border:1px solid rgba(255,255,255,.1);
+
+    transition:.4s;
+
+}
+
+
+.card:hover {
+
+    transform:translateY(-15px);
+
+    border-color:var(--primary);
+
+    box-shadow:0 20px 50px rgba(0,234,255,.2);
+
+}
+
+
+.card img {
+
+    width:100%;
+    height:220px;
+
+    object-fit:cover;
+
+    background:#020617;
+
+}
+
+
+
+.card-content {
+
+    padding:30px;
+
+}
+
+
+.card h3 {
+
+    font-size:30px;
+
+    color:var(--primary);
+
+}
+
+
+.card p {
+
+    color:var(--gray);
+
+    margin:20px 0;
+
+}
+
+
+
+.status {
+
+    color:#4ade80;
+
+    font-weight:700;
+
+    margin-bottom:20px;
+
+}
+
+
+
+
+
+/* NEWS */
+
+
+.news-card {
+
+    background:var(--card);
+
+    padding:30px;
+
+    border-radius:20px;
+
+    border:1px solid rgba(255,255,255,.1);
+
+}
+
+
+
+
+
+/* CONTACT */
+
+
+.contact {
+
+    text-align:center;
+
+    background:rgba(255,255,255,.05);
+
+    padding:40px;
+
+    border-radius:25px;
+
+}
+
+
+
+.contact a {
+
+    color:var(--primary);
+
+    font-size:20px;
+
+}
+
+
+
+
+
+/* FOOTER */
+
+
+footer {
+
+    text-align:center;
+
+    padding:40px;
+
+    background:#020617;
+
+}
+
+
+.footer-logo {
+
+    font-size:30px;
+
+    font-weight:800;
+
+    color:var(--primary);
+
+}
+
+
+
+
+
+/* MOBILE */
+
+
+@media(max-width:800px){
+
+
+.hero h1 {
+
+font-size:42px;
+
+}
+
+
+
+.nav-links {
+
+display:none;
+
+position:absolute;
+
+top:80px;
+left:0;
+
+width:100%;
+
+background:#050816;
+
+flex-direction:column;
+
+text-align:center;
+
+padding:40px;
+
+
+}
+
+
+.nav-links.active {
+
+display:flex;
+
+}
+
+
+.menu {
+
+display:block;
+
+}
+
+
+
+}
+
+
+</style>
+
 </head>
-<body>  
-    <header>
-        <nav>
-            <div class="logo">WINDSKORE</div>
-            
-            <ul class="nav-links" id="navLinks">
-                <li><a href="#games">Spel</a></li>
-                <li><a href="#about">Om Oss</a></li>
-                <li><a href="#news">Nyheter</a></li>
-                <li><a href="#contact">Kontakt</a></li>
-            </ul>
-            
-            <div class="hamburger" id="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </nav>
-    </header>
 
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Windskore</h1>
-            <p></p>
-            <a href="#games" class="btn">Utforska Spelen</a>
-        </div>
-    </section>
 
-    <section id="about" class="about">
-        <h2 class="animate-on-scroll">Om Windskore</h2>
-        <p class="animate-on-scroll" style="max-width: 800px; margin: 0 auto 3rem; text-align: center; font-size: 1.2rem;">
-            Windskore är en svensk hobbyverksamhet grundat den 7 augusti 2023 med målet att skapa spel, digitala tjänster och lösningar. 
-            Hos Windskore arbetar vi med att utveckla spel, webbplatser och digitala projekt.
-Vårt mål är att skapa produkter som är roliga, användarvänliga och minnesvärda.
-        </p>
-    </section>
+<body>
 
-    <section id="games">
-        <h2 class="animate-on-scroll">Våra Spel</h2>
-        <div class="games-grid">
-            <div class="game-card animate-on-scroll">
-                <img src="" alt="Island Of Vehicles">
-                <div class="game-info" style="padding: 1.5rem;">
-                    <h3 style="color: var(--primary);">Island Of Vehicles</h3>
-                    <p></p>
-                    <p><strong>Status:</strong>Släppt: 2025-12-06</p>
-                    <a href="https://windskore.se/Island-Of-Vehicles/" class="btn" style="margin-top: 1rem; width: 100%; text-align: center;">Skaffa→</a>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <section id="news" class="news">
-        <h2 class="animate-on-scroll">Senaste Nyheterna</h2>
-        <div class="news-item animate-on-scroll" style="background:#172033; padding:2rem; border-radius:16px; margin-bottom:1.5rem;">
-            <h3>Island Of Vehicles: 1.1</h3>
-            <p>2025-12-20</p>
-        </div>
-    </section>
 
-    <section id="contact">
-        <h2 class="animate-on-scroll">Kontakta Oss</h2>
-        <div class="animate-on-scroll" style="text-align:center; background:rgba(255,255,255,0.05); padding:2.5rem; border-radius:20px; max-width:600px; margin:0 auto;">
-            <p style="font-size:1.2rem;">E-post: <a href="mailto:support@windskore.se" style="color:var(--primary);">support@windskore.se</a></p>
-        </div>
-    </section>
+<header>
 
-    <footer>
-        <div class="logo" style="font-size:2rem; margin-bottom:1rem;">WINDSKORE</div>
-        <p>&copy; 2026 Windskore. Alla rättigheter förbehållna.</p>
-    </footer>
+<nav>
 
-    <script>
-        // Hamburger menu
-        const hamburger = document.getElementById('hamburger');
-        const navLinks = document.getElementById('navLinks');
-        
-        hamburger.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            
-            // Animera hamburger till X
-            const spans = hamburger.querySelectorAll('span');
-            if (navLinks.classList.contains('active')) {
-                spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
-                spans[1].style.opacity = '0';
-                spans[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
-            } else {
-                spans[0].style.transform = 'none';
-                spans[1].style.opacity = '1';
-                spans[2].style.transform = 'none';
-            }
-        });
+<div class="logo">
+WINDSKORE
+</div>
 
-        // Smooth scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                if (this.getAttribute('href') !== '#') {
-                    e.preventDefault();
-                    document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
-                    // Stäng menyn på mobil
-                    if (window.innerWidth <= 768) {
-                        navLinks.classList.remove('active');
-                    }
-                }
-            });
-        });
 
-        // Scroll animationer
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.15 });
+<ul class="nav-links">
 
-        document.querySelectorAll('.animate-on-scroll').forEach(el => {
-            observer.observe(el);
-        });
-    </script>
+<li><a href="#games">Spel</a></li>
+
+<li><a href="#about">Om oss</a></li>
+
+<li><a href="#news">Nyheter</a></li>
+
+<li><a href="#contact">Kontakt</a></li>
+
+</ul>
+
+
+<div class="menu">
+☰
+</div>
+
+
+</nav>
+
+</header>
+
+
+
+
+
+<section class="hero">
+
+
+<div>
+
+<h1>
+Vi skapar världar.<br>
+Du upplever äventyret.
+</h1>
+
+
+<p>
+Windskore är en svensk spelstudio som utvecklar
+spel, digitala tjänster och kreativa projekt.
+</p>
+
+
+<a class="btn" href="#games">
+Utforska spel
+</a>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+<section id="about">
+
+
+<div class="title">
+
+<span>OM OSS</span>
+
+<h2>Windskore</h2>
+
+</div>
+
+
+
+<div class="about-box">
+
+Windskore är en svensk hobbyverksamhet grundad den
+7 augusti 2023 med målet att skapa spel,
+digitala tjänster och lösningar.
+
+<br><br>
+
+Vi utvecklar spel, webbplatser och digitala projekt.
+Vårt mål är att skapa produkter som är roliga,
+användarvänliga och minnesvärda.
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+<section id="games">
+
+
+<div class="title">
+
+<span>VÅRA SPEL</span>
+
+<h2>Projekt</h2>
+
+</div>
+
+
+
+<div class="games">
+
+
+<div class="card">
+
+
+<img src="images/island-of-vehicles.png" alt="Island Of Vehicles">
+
+
+<div class="card-content">
+
+
+<h3>
+Island Of Vehicles
+</h3>
+
+
+<p>
+Ett öppet fordonsäventyr där spelare kan
+utforska världen, köra fordon och skapa egna
+upplevelser.
+</p>
+
+
+<div class="status">
+Släppt: 6 december 2025
+</div>
+
+
+<a class="btn" href="https://windskore.se/Island-Of-Vehicles/">
+Läs mer →
+</a>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<section id="news">
+
+
+<div class="title">
+
+<span>SENASTE NYTT</span>
+
+<h2>Nyheter</h2>
+
+</div>
+
+
+<div class="news-card">
+
+<h3>
+Island Of Vehicles: 1.1
+</h3>
+
+
+<p>
+20 december 2025
+</p>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<section id="contact">
+
+
+<div class="title">
+
+<span>KONTAKT</span>
+
+<h2>Kontakta oss</h2>
+
+</div>
+
+
+<div class="contact">
+
+
+<p>
+Har du frågor eller vill kontakta Windskore?
+</p>
+
+
+<br>
+
+
+<a href="mailto:support@windskore.se">
+support@windskore.se
+</a>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<footer>
+
+<div class="footer-logo">
+WINDSKORE
+</div>
+
+<p>
+© 2026 Windskore. Alla rättigheter förbehållna.
+</p>
+
+</footer>
+
+
+
+
+
+
+<script>
+
+
+const menu=document.querySelector(".menu");
+
+const links=document.querySelector(".nav-links");
+
+
+menu.onclick=()=>{
+
+links.classList.toggle("active");
+
+};
+
+
+
+</script>
+
+
+
+
+
 
 <!-- Tawk.to -->
-  <script type="text/javascript">
-    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-    (function(){
-      var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-      s1.async=true;
-      s1.src='https://embed.tawk.to/6800b82fc5e333190b5b7845/1ip1cuv4g';
-      s1.charset='UTF-8';
-      s1.setAttribute('crossorigin','*');
-      s0.parentNode.insertBefore(s1,s0);
-    })();
-  </script>
+
+<script type="text/javascript">
+
+var Tawk_API=Tawk_API||{},
+Tawk_LoadStart=new Date();
+
+(function(){
+
+var s1=document.createElement("script"),
+s0=document.getElementsByTagName("script")[0];
+
+s1.async=true;
+
+s1.src='https://embed.tawk.to/6800b82fc5e333190b5b7845/1ip1cuv4g';
+
+s1.charset='UTF-8';
+
+s1.setAttribute('crossorigin','*');
+
+s0.parentNode.insertBefore(s1,s0);
+
+})();
+
+</script>
+
+
 
 </body>
 </html>
-
-
-
-
