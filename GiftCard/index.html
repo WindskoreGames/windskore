@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Windskore Giftcards</title>
+
+<script async src="https://js.stripe.com/v3/buy-button.js"></script>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #101010;
+    color: white;
+}
+
+
+header {
+    text-align: center;
+    padding: 50px 20px;
+    background: linear-gradient(135deg, #00aaff, #0044ff);
+}
+
+
+header h1 {
+    font-size: 45px;
+}
+
+
+.giftcards {
+
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
+    padding: 50px 20px;
+
+}
+
+
+.card {
+
+    background: #1c1c1c;
+    width: 300px;
+    padding: 25px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 0 25px rgba(0,0,0,0.5);
+    transition: 0.3s;
+
+}
+
+
+.card:hover {
+
+    transform: translateY(-10px);
+
+}
+
+
+.card img {
+
+    width: 100%;
+    border-radius: 15px;
+
+}
+
+
+.card h3 {
+
+    font-size: 35px;
+    color: #00aaff;
+
+}
+
+
+button {
+
+    background: #00aaff;
+    color: white;
+    border: none;
+    padding: 14px 35px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+
+}
+
+
+button:hover {
+
+    background: #0088cc;
+
+}
+
+
+
+/* POPUP */
+
+.popup {
+
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.75);
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+.popup-box {
+
+    background: #1c1c1c;
+    width: 360px;
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+
+}
+
+
+.popup-box img {
+
+    width: 100%;
+    border-radius: 15px;
+
+}
+
+
+.popup-box h2 {
+
+    color: #00aaff;
+    font-size: 35px;
+
+}
+
+
+.close {
+
+    background: #ff3333;
+    margin-top: 20px;
+
+}
+
+
+
+.info {
+
+    text-align: center;
+    padding: 30px;
+    background: #181818;
+
+}
+
+
+footer {
+
+    text-align: center;
+    padding: 20px;
+    background: #080808;
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+<h1>🎁 Windskore Giftcards</h1>
+
+<p>Köp presentkort från Windskore</p>
+
+</header>
+
+
+
+<section class="giftcards">
+
+
+<div class="card">
+
+<img src="100.png">
+
+<h2>Windskore Giftcard</h2>
+
+<h3>100 kr</h3>
+
+<p>Presentkort värde 100 kr.</p>
+
+<button onclick="openPopup('100.png','100 kr')">
+Köp nu
+</button>
+
+</div>
+
+
+
+<div class="card">
+
+<img src="200.png">
+
+<h2>Windskore Giftcard</h2>
+
+<h3>200 kr</h3>
+
+<p>Presentkort värde 200 kr.</p>
+
+<button onclick="openPopup('200.png','200 kr')">
+Köp nu
+</button>
+
+</div>
+
+
+
+
+<div class="card">
+
+<img src="500.png">
+
+<h2>Windskore Giftcard</h2>
+
+<h3>500 kr</h3>
+
+<p>Presentkort värde 500 kr.</p>
+
+<button onclick="openPopup('500.png','500 kr')">
+Köp nu
+</button>
+
+</div>
+
+
+
+
+<div class="card">
+
+<img src="700.png">
+
+<h2>Windskore Giftcard</h2>
+
+<h3>700 kr</h3>
+
+<p>Presentkort värde 700 kr.</p>
+
+<button onclick="openPopup('700.png','700 kr')">
+Köp nu
+</button>
+
+</div>
+
+
+</section>
+
+
+
+
+<!-- POPUP -->
+
+<div class="popup" id="popup">
+
+
+<div class="popup-box">
+
+
+<img id="popupImage">
+
+
+<h2 id="popupPrice"></h2>
+
+
+<div id="stripeButton"></div>
+
+
+<button class="close" onclick="closePopup()">
+Stäng
+</button>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+<section class="info">
+
+<h2>Om Windskore Giftcards</h2>
+
+<p>
+Windskore Giftcards kan användas för köp av Windskore-produkter och tjänster.
+</p>
+
+</section>
+
+
+
+
+<footer>
+
+© 2026 Windskore. Alla rättigheter förbehållna.
+
+</footer>
+
+
+
+
+
+<script>
+
+
+function openPopup(image, price) {
+
+
+document.getElementById("popupImage").src = image;
+
+document.getElementById("popupPrice").innerHTML = price;
+
+
+
+let button = "";
+
+
+
+if(price === "100 kr") {
+
+
+button = `
+
+<stripe-buy-button
+
+buy-button-id="buy_btn_1TvikJ47Kdo1X0Nu4jARY0Jp"
+
+publishable-key="pk_live_51TSwQa47Kdo1X0Nuuxfmf3lFQNi3rgOoRQrfBZCQmjLb4csNy7C8YO1PYZIJbI7OYQSS7KZV23IPjtvnRCC2KgT9001IsUW5zm">
+
+</stripe-buy-button>
+
+`;
+
+}
+
+
+
+if(price === "200 kr") {
+
+
+button = `
+
+<stripe-buy-button
+
+buy-button-id="buy_btn_1Tvinj47Kdo1X0NuHftvLjYF"
+
+publishable-key="pk_live_51TSwQa47Kdo1X0Nuuxfmf3lFQNi3rgOoRQrfBZCQmjLb4csNy7C8YO1PYZIJbI7OYQSS7KZV23IPjtvnRCC2KgT9001IsUW5zm">
+
+</stripe-buy-button>
+
+`;
+
+}
+
+
+
+if(price === "500 kr") {
+
+
+button = `
+
+<stripe-buy-button
+
+buy-button-id="buy_btn_1Tviqc47Kdo1X0NuAcAFjZfg"
+
+publishable-key="pk_live_51TSwQa47Kdo1X0Nuuxfmf3lFQNi3rgOoRQrfBZCQmjLb4csNy7C8YO1PYZIJbI7OYQSS7KZV23IPjtvnRCC2KgT9001IsUW5zm">
+
+</stripe-buy-button>
+
+`;
+
+}
+
+
+
+if(price === "700 kr") {
+
+
+button = `
+
+<stripe-buy-button
+
+buy-button-id="buy_btn_1Tviyc47Kdo1X0NuqDhnGQX1"
+
+publishable-key="pk_live_51TSwQa47Kdo1X0Nuuxfmf3lFQNi3rgOoRQrfBZCQmjLb4csNy7C8YO1PYZIJbI7OYQSS7KZV23IPjtvnRCC2KgT9001IsUW5zm">
+
+</stripe-buy-button>
+
+`;
+
+}
+
+
+
+document.getElementById("stripeButton").innerHTML = button;
+
+
+document.getElementById("popup").style.display = "flex";
+
+
+}
+
+
+
+
+
+function closePopup() {
+
+
+document.getElementById("popup").style.display = "none";
+
+document.getElementById("stripeButton").innerHTML = "";
+
+
+}
+
+
+</script>
+
+
+</body>
+</html>
