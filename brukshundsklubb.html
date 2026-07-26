@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <title>Hedemora-Säter BK</title>
+</head>
+<body>
+
+<h1>Skriv in kod</h1>
+
+<input type="password" id="kod" placeholder="Kod">
+<button onclick="kontrolleraKod()">Öppna</button>
+
+<p id="resultat"></p>
+
+<script>
+function kontrolleraKod() {
+    let kod = document.getElementById("kod").value;
+
+    if (kod === "21") {
+        document.getElementById("resultat").innerHTML = "Rätt kod! Välkommen.";
+    } else {
+        document.getElementById("resultat").innerHTML = "Fel kod.";
+    }
+}
+</script>
+
+</body>
+</html>
