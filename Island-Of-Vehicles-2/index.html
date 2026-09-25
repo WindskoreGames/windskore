@@ -1,329 +1,1124 @@
+```html
 <!DOCTYPE html>
 <html lang="sv">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Island Of Vehicles 2</title>
-  <meta name="description" content="" />
-  <meta name="theme-color" content="#FF6A00" />
-  <meta property="og:title" content="Island Of Vehicles 2" />
-  <meta property="og:description" content="Se trailern och köp Island Of Vehicles 2 nu." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://example.com/iov_og.jpg" />
-  <meta property="og:url" content="https://example.com/store/island-of-vehicles" />
-  <style>
-    :root{
-      --bg:#0b0c0f;
-      --panel:#121418;
-      --text:#e9eef7;
-      --muted:#b9c2d0;
-      --brand:#FF6A00;     /* Orange accent */
-      --brand-2:#FFD140;   /* Pay button accent */
-      --line:#1f2430;
-      --ok:#10b981;
-      --warn:#f59e0b;
-    }
-    *{box-sizing:border-box}
-    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
-    a{color:var(--brand);text-decoration:none}
-    a:hover{text-decoration:underline}
-    img{max-width:100%;height:auto}
-    .wrap{max-width:1160px;margin:0 auto;padding:24px}
-    header.hero{
-      display:grid;grid-template-columns:1fr;gap:16px;align-items:center;justify-items:start;
-      padding:32px 0;border-bottom:1px solid var(--line)
-    }
-    .brandline{display:flex;gap:12px;align-items:center}
-    .logo{
-      width:56px;height:56px;border-radius:12px;
-      background:radial-gradient(120% 120% at 30% 30%, #FFB36A 0%, #FF6A00 48%, #9e3e00 100%);
-      box-shadow:0 10px 30px rgba(255,106,0,.25), inset 0 0 18px rgba(255,209,64,.35)
-    }
-    h1{margin:0;font-size:34px;letter-spacing:.2px}
-    .subtitle{color:var(--muted);font-size:16px}
-    .cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:12px}
-    .badge{display:inline-flex;gap:8px;align-items:center;padding:8px 12px;border:1px solid var(--line);border-radius:999px;color:var(--muted);background:linear-gradient(180deg, #14171d 0%, #0f1116 100%)}
-    .section{padding:28px 0;border-bottom:1px solid var(--line)}
-    .panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px}
-    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-    @media (max-width:960px){.grid-2,.grid-3{grid-template-columns:1fr}}
-    h2{font-size:24px;margin:0 0 12px}
-    h3{font-size:18px;margin:0 0 8px}
-    .kicker{color:var(--muted);font-size:13px;text-transform:uppercase;letter-spacing:.12em}
-    .feature{display:flex;gap:12px}
-    .dot{width:10px;height:10px;border-radius:50%;background:var(--brand);margin-top:6px;flex:0 0 10px;box-shadow:0 0 0 4px rgba(255,106,0,.12)}
-    .list{display:grid;gap:10px}
-    .buy{display:grid;gap:14px}
-    .price-row{display:flex;align-items:center;gap:10px}
-    .price{font-size:22px;font-weight:700}
-    .note{color:var(--muted);font-size:14px}
-    .trailer{overflow:hidden;border-radius:14px;box-shadow:0 12px 30px rgba(0,0,0,.35)}
-    .gallery-card{position:relative;overflow:hidden;border-radius:12px;background:#0d0f13;border:1px solid var(--line);min-height:180px}
-    .gallery-card .label{position:absolute;left:10px;bottom:10px;background:rgba(0,0,0,.6);color:#fff;padding:6px 10px;border-radius:999px;font-size:12px;border:1px solid rgba(255,255,255,.12)}
-    .placeholder{display:grid;place-items:center;height:180px;color:#7a8aa0;background:repeating-linear-gradient(135deg,#0f1217,#0f1217 12px,#0c0e12 12px,#0c0e12 24px)}
-    .sys{display:grid;gap:8px}
-    .sys .row{display:grid;grid-template-columns:160px 1fr;gap:12px}
-    @media (max-width:640px){.sys .row{grid-template-columns:1fr}}
-    footer{padding:32px 0;color:var(--muted)}
-    .small{font-size:12px}
-    .highlight{color:#fff;background:linear-gradient(90deg, rgba(255,106,0,.15), rgba(255,209,64,.12));padding:2px 6px;border-radius:6px;border:1px solid rgba(255,106,0,.25)}
-    .chip{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:999px;border:1px dashed rgba(255,209,64,.35);color:#ffd140;background:rgba(255,209,64,.08)}
-    .shadow-amber{box-shadow:0 8px 24px rgba(255,106,0,.18)}
-    .pay-panel{display:grid;gap:12px}
-  </style>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "VideoGame",
-    "name": "Island Of Vehicles 2",
-    "genre": "Open world, vehicle collection, exploration",
-    "url": "https://windskore.se/Island-of-vehicles-2",
-    "description": "",
-    "author": {"@type":"Organization","name":"Windskore"},
-    "publisher": {"@type":"Organization","name":"Windskore"},
-    "inLanguage": "sv",
-    "offers": {
-      "@type": "Offer",
-      "priceCurrency": "SEK",
-      "availability": "https://schema.org/InStock",
-      "url": "https://www.paypal.com/ncp/payment/Q7PYPDX47Y2SJ"
-    },
-    "trailer": {
-      "@type": "VideoObject",
-      "name": "Island Of Vehicles 2 – Launch Trailer",
-      "embedUrl": "https://streamable.com/e/fr1sed?"
-    },
-    "operatingSystem": "Windows 11",
-    "applicationCategory": "Game"
-  }
-  </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Island Of Vehicles 2 | Windskore</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #08090c;
+            --bg-secondary: #0e1015;
+            --card: #12151c;
+            --card-hover: #171b24;
+            --border: rgba(255,255,255,0.08);
+            --text: #ffffff;
+            --muted: #9da3ae;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+        }
+
+        /* NAVIGATION */
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 76px;
+            background: rgba(8, 9, 12, 0.88);
+            backdrop-filter: blur(18px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+        }
+
+        .navbar {
+            max-width: 1400px;
+            height: 100%;
+            margin: auto;
+            padding: 0 30px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: white;
+        }
+
+        .brand-logo {
+            width: 38px;
+            height: 38px;
+            border-radius: 10px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: linear-gradient(135deg, #ffffff, #8f96a3);
+            color: #08090c;
+            font-weight: 900;
+            font-size: 15px;
+        }
+
+        .brand-name {
+            font-size: 18px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        nav a {
+            color: #b7bcc5;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition: 0.2s;
+        }
+
+        nav a:hover {
+            color: white;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 680px;
+            padding: 150px 30px 90px;
+
+            display: flex;
+            align-items: center;
+
+            background:
+                radial-gradient(
+                    circle at 70% 35%,
+                    rgba(255,255,255,0.09),
+                    transparent 35%
+                ),
+                radial-gradient(
+                    circle at 20% 70%,
+                    rgba(100,110,130,0.08),
+                    transparent 35%
+                ),
+                linear-gradient(
+                    180deg,
+                    #0b0d11 0%,
+                    #08090c 100%
+                );
+        }
+
+        .hero-inner {
+            max-width: 1250px;
+            width: 100%;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: 1fr 0.9fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .hero-content {
+            max-width: 700px;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+
+            padding: 8px 13px;
+            border-radius: 999px;
+
+            background: rgba(255,255,255,0.06);
+            border: 1px solid var(--border);
+
+            color: #cdd1d8;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+
+            margin-bottom: 25px;
+        }
+
+        .eyebrow-dot {
+            width: 7px;
+            height: 7px;
+            background: #ffffff;
+            border-radius: 50%;
+        }
+
+        .hero h1 {
+            font-size: clamp(55px, 7vw, 100px);
+            line-height: 0.88;
+            letter-spacing: -5px;
+            margin-bottom: 28px;
+        }
+
+        .hero h1 span {
+            display: block;
+            color: #858b96;
+        }
+
+        .hero-description {
+            color: var(--muted);
+            font-size: 18px;
+            line-height: 1.7;
+            max-width: 620px;
+            margin-bottom: 34px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 13px;
+            flex-wrap: wrap;
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            min-height: 50px;
+            padding: 0 23px;
+
+            border-radius: 10px;
+
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 14px;
+
+            transition: 0.2s;
+        }
+
+        .button-primary {
+            background: white;
+            color: #08090c;
+        }
+
+        .button-primary:hover {
+            background: #e5e7eb;
+            transform: translateY(-2px);
+        }
+
+        .button-secondary {
+            color: white;
+            border: 1px solid var(--border);
+            background: rgba(255,255,255,0.04);
+        }
+
+        .button-secondary:hover {
+            background: rgba(255,255,255,0.09);
+        }
+
+        /* GAME ART */
+
+        .hero-art {
+            min-height: 430px;
+            border-radius: 24px;
+
+            position: relative;
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,0.12),
+                    rgba(255,255,255,0.02)
+                );
+
+            border: 1px solid var(--border);
+
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+
+            box-shadow:
+                0 30px 80px rgba(0,0,0,0.35),
+                inset 0 1px 0 rgba(255,255,255,0.05);
+        }
+
+        .hero-art::before {
+            content: "";
+            position: absolute;
+            width: 500px;
+            height: 500px;
+
+            border-radius: 50%;
+
+            background: radial-gradient(
+                circle,
+                rgba(255,255,255,0.13),
+                transparent 65%
+            );
+
+            top: -200px;
+            right: -150px;
+        }
+
+        .game-cover {
+            position: relative;
+            z-index: 2;
+
+            width: 82%;
+            max-width: 410px;
+            aspect-ratio: 0.72;
+
+            border-radius: 16px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #252a33,
+                    #0d0f14 60%,
+                    #050608
+                );
+
+            border: 1px solid rgba(255,255,255,0.12);
+
+            box-shadow: 0 35px 70px rgba(0,0,0,0.5);
+
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            padding: 30px;
+            transform: rotate(2deg);
+        }
+
+        .cover-top {
+            font-size: 11px;
+            letter-spacing: 3px;
+            color: #aeb4be;
+            font-weight: 800;
+        }
+
+        .cover-title {
+            font-size: 38px;
+            line-height: 0.9;
+            letter-spacing: -2px;
+            font-weight: 900;
+        }
+
+        .cover-title span {
+            color: #8f96a2;
+        }
+
+        .cover-bottom {
+            font-size: 11px;
+            color: #9ca2ac;
+            letter-spacing: 2px;
+            font-weight: 700;
+        }
+
+        /* GENERAL */
+
+        section {
+            padding: 100px 30px;
+        }
+
+        .section-inner {
+            max-width: 1250px;
+            margin: auto;
+        }
+
+        .section-header {
+            margin-bottom: 50px;
+        }
+
+        .section-label {
+            color: #858b96;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .section-header h2 {
+            font-size: clamp(35px, 5vw, 55px);
+            letter-spacing: -2.5px;
+        }
+
+        .section-header p {
+            color: var(--muted);
+            margin-top: 15px;
+            max-width: 650px;
+            line-height: 1.7;
+        }
+
+        /* EDITIONS */
+
+        .editions {
+            background: var(--bg-secondary);
+        }
+
+        .edition-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .edition-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 35px;
+
+            min-height: 350px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            transition: 0.25s;
+        }
+
+        .edition-card:hover {
+            transform: translateY(-6px);
+            background: var(--card-hover);
+            border-color: rgba(255,255,255,0.15);
+        }
+
+        .edition-card.featured {
+            border-color: rgba(255,255,255,0.28);
+
+            background:
+                linear-gradient(
+                    160deg,
+                    rgba(255,255,255,0.08),
+                    rgba(255,255,255,0.025)
+                );
+        }
+
+        .edition-tag {
+            align-self: flex-start;
+
+            padding: 6px 10px;
+            border-radius: 6px;
+
+            background: rgba(255,255,255,0.08);
+
+            color: #c6cad1;
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+
+            margin-bottom: 25px;
+        }
+
+        .edition-card h3 {
+            font-size: 30px;
+            letter-spacing: -1px;
+            margin-bottom: 15px;
+        }
+
+        .edition-description {
+            color: var(--muted);
+            font-size: 15px;
+            line-height: 1.7;
+            margin-bottom: 30px;
+        }
+
+        .edition-button {
+            width: 100%;
+        }
+
+        /* INFORMATION */
+
+        .information {
+            background: #08090c;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .info-card {
+            padding: 30px;
+
+            min-height: 210px;
+
+            border-radius: 17px;
+            border: 1px solid var(--border);
+            background: rgba(255,255,255,0.025);
+        }
+
+        .info-icon {
+            width: 42px;
+            height: 42px;
+
+            border-radius: 10px;
+
+            background: rgba(255,255,255,0.07);
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 18px;
+
+            margin-bottom: 22px;
+        }
+
+        .info-card h3 {
+            font-size: 19px;
+            margin-bottom: 10px;
+        }
+
+        .info-card p {
+            color: var(--muted);
+            line-height: 1.65;
+            font-size: 14px;
+        }
+
+        /* RELEASE */
+
+        .release {
+            padding-top: 50px;
+            padding-bottom: 120px;
+        }
+
+        .release-box {
+            border: 1px solid var(--border);
+            border-radius: 24px;
+
+            padding: 65px 50px;
+
+            text-align: center;
+
+            background:
+                radial-gradient(
+                    circle at center,
+                    rgba(255,255,255,0.07),
+                    transparent 60%
+                );
+        }
+
+        .release-box .small {
+            color: #8b919b;
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 800;
+        }
+
+        .release-box h2 {
+            font-size: clamp(42px, 7vw, 75px);
+            letter-spacing: -4px;
+            margin: 15px 0;
+        }
+
+        .release-box p {
+            color: var(--muted);
+            max-width: 600px;
+            margin: auto;
+            line-height: 1.7;
+        }
+
+        /* FOOTER */
+
+        footer {
+            border-top: 1px solid var(--border);
+            background: #06070a;
+            padding: 50px 30px;
+        }
+
+        .footer-inner {
+            max-width: 1250px;
+            margin: auto;
+
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .footer-brand {
+            font-weight: 800;
+            font-size: 16px;
+        }
+
+        .footer-brand span {
+            color: #777d87;
+        }
+
+        .copyright {
+            color: #60656e;
+            font-size: 12px;
+            margin-top: 7px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 22px;
+        }
+
+        .footer-links a {
+            color: #7f858f;
+            text-decoration: none;
+            font-size: 13px;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 950px) {
+
+            .hero-inner {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+
+            .hero-art {
+                max-width: 600px;
+                width: 100%;
+                margin: auto;
+            }
+
+            .edition-grid,
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .edition-card {
+                min-height: auto;
+            }
+        }
+
+        @media (max-width: 650px) {
+
+            header {
+                height: 65px;
+            }
+
+            .navbar {
+                padding: 0 18px;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .hero {
+                padding: 120px 20px 70px;
+            }
+
+            section {
+                padding: 75px 20px;
+            }
+
+            .hero h1 {
+                letter-spacing: -3px;
+            }
+
+            .hero-description {
+                font-size: 16px;
+            }
+
+            .hero-art {
+                min-height: 390px;
+            }
+
+            .release-box {
+                padding: 50px 25px;
+            }
+
+            .footer-inner {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .footer-links {
+                flex-wrap: wrap;
+            }
+        }
+    </style>
 </head>
+
 <body>
-  <div class="wrap">
-    <!-- Hero -->
-    <header class="hero">
-      <div class="brandline">
-        <div class="logo" aria-hidden="true"></div>
-        <div>
-          <h1>Island Of Vehicles</h1>
-          <div class="subtitle"></div>
-          <div class="cta-row">
-            <span class="badge"><span class="highlight">Windows 11</span> PC</span>
-            <span class="badge">Singleplayer / Multiplayer</span>
-            <span class="badge">Tangentbord</span>
-            <span class="badge">Regelbundna uppdateringar</span>
-          </div>
+
+    <!-- NAVIGATION -->
+
+    <header>
+        <div class="navbar">
+
+            <a href="#" class="brand">
+                <div class="brand-logo">W</div>
+                <div class="brand-name">WINDSKORE</div>
+            </a>
+
+            <nav>
+                <a href="#game">Spelet</a>
+                <a href="#editions">Utgåvor</a>
+                <a href="#information">Information</a>
+                <a href="#release">Lansering</a>
+            </nav>
+
         </div>
-      </div>
     </header>
 
-    <!-- Trailer + Buy -->
-    <section class="section grid-2">
-      <div class="panel trailer">
-        <h2>Launch trailer</h2>
-        <!-- Launch Trailer -->
-        <div style="position:relative; width:100%; height:0px; padding-bottom:56.250%">
-          <iframe allow="fullscreen" allowfullscreen height="100%" src="https://streamable.com/e/fr1sed?" width="100%" style="border:none; width:100%; height:100%; position:absolute; left:0px; top:0px; overflow:hidden;" title="Island Of Vehicles 2 – Announcement Trailer"></iframe>
-        </div>
-      </div>
 
-      <div class="panel buy shadow-amber">
-        <div class="kicker">Köp nu</div>
-        <h1>Standard: 299kr</h1>
-        <h1>Deluxe: 399kr</h1>
-        <div class="price-row">
-          <div class="chip">Betala med PayPal, kort m.m</div>
-        </div>
-        <div class="note"></div>
-        <div class="pay-panel">
-          <!-- Pay Button (oförändrad) -->
-          <div>
-            <style>
-              .pp-Q7PYPDX47Y2SJ{
-                text-align:center;border:none;border-radius:0.25rem;min-width:11.625rem;padding:0 2rem;height:2.625rem;font-weight:bold;background-color:#FFD140;color:#000000;font-family:"Helvetica Neue",Arial,sans-serif;font-size:1rem;line-height:1.25rem;cursor:pointer;
-              }
-            </style>
-            <form action="https://www.paypal.com/ncp/payment/Q7PYPDX47Y2SJ" method="post" target="_blank" style="display:inline-grid;justify-items:center;align-content:start;gap:0.5rem;">
-              <input class="pp-Q7PYPDX47Y2SJ" type="submit" value="Betala nu" />
-              <img src="https://www.paypalobjects.com/images/Debit_Credit_APM.svg" alt="cards" />
-              <section style="font-size: 0.75rem;">
-                Tillhandahålls av
-                <img src="https://www.paypalobjects.com/paypal-ui/logos/svg/paypal-wordmark-color.svg" alt="paypal" style="height:0.875rem;vertical-align:middle;"/>
-              </section>
-            </form>
-          </div>
-          <div class="small note">Genom att köpa Island Of Vehicles 2 godkänner du Windskore ToS och Sekretesspolicy, samt Island Of Vehicles 2 EULA</div>
-        </div>
-      </div>
-    </section>
+    <!-- HERO -->
 
-    <!-- Why buy -->
-    <section class="section panel">
-      <div class="kicker">Varför Island Of Vehicles 2?</div>
-      <h2>Skapad för upptäckare och samlare</h2>
-      <div class="grid-3">
-        <div class="list">
-          <div class="feature">
-            <div class="dot" aria-hidden="true"></div>
-            <div>
-              <h3>Ön</h3>
-              <div class="note">Ön är custom byggt från grunden. Hus, byggnader och  vägar är helt unika</div>
+    <main>
+
+        <section class="hero" id="game">
+
+            <div class="hero-inner">
+
+                <div class="hero-content">
+
+                    <div class="eyebrow">
+                        <span class="eyebrow-dot"></span>
+                        Island Of Vehicles 2
+                    </div>
+
+                    <h1>
+                        DRIVE
+                        <span>THE WORLD.</span>
+                    </h1>
+
+                    <p class="hero-description">
+                        Island Of Vehicles 2 är nästa kapitel i Windskores
+                        fordonsvärld. Utforska en enorm värld, upptäck nya
+                        platser och skapa din egen väg genom spelet.
+                    </p>
+
+                    <div class="hero-buttons">
+
+                        <a href="#editions" class="button button-primary">
+                            Se utgåvor
+                        </a>
+
+                        <a href="#information" class="button button-secondary">
+                            Läs mer
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <div class="hero-art">
+
+                    <div class="game-cover">
+
+                        <div class="cover-top">
+                            WINDSKORE PRESENTS
+                        </div>
+
+                        <div class="cover-title">
+                            ISLAND<br>
+                            OF<br>
+                            <span>VEHICLES</span>
+                            <br>
+                            2
+                        </div>
+
+                        <div class="cover-bottom">
+                            11 DECEMBER 2027
+                        </div>
+
+                    </div>
+
+                </div>
+
             </div>
-          </div>
-          <div class="feature">
-            <div class="dot" aria-hidden="true"></div>
-            <div>
-              <h3>Missions</h3>
-              <div class="note">Grund spelet innehåller 20 missions, Deluxe har 30st.</div>
-            </div>
-          </div>
-        </div>
-        <div class="list">
-          <div class="feature">
-            <div class="dot" aria-hidden="true"></div>
-            <div>
-              <h3>Uppdateringar</h3>
-              <div class="note">Island Of Vehicles 2 kommer regelbundet uppdateras i minst 6 månader framåt.</div>
-            </div>
-          </div>
-          <div class="feature">
-            <div class="dot" aria-hidden="true"></div>
-            <div>
-              <h3>Installation</h3>
-              <div class="note">Spelet installeras enkelt via en updater som är kopplat till Windskores servers.</div>
-            </div>
-          </div>
-        </div>
-        <div class="list">
-          <div class="feature">
-            <div class="dot" aria-hidden="true"></div>
-            <div>
-              <h3>Grafik</h3>
-              <div class="note">Spelet levererar upp till 4K-upplösning med stöd för Unreal Engines Lumen-teknik, vilket skapar dynamisk global belysning, realistiska skuggor och naturtrogna reflektioner. De högupplösta texturerna och den avancerade renderingen ger en visuellt imponerande och detaljerad spelvärld med hög prestanda och modern grafikstandard.</div>
-            </div>
-          </div>
-          <div class="feature">
-            <div class="dot" aria-hidden="true"></div>
-            <div>
-              <h3>Innehål</h3>
-              <div class="note">Spelet innehåller en stor map med massor av missions. Kör runt, spela storyn och hitta allt!</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- Mellanrum -->
-    <section class="section">
-      <h2></h2>
-      <div class="grid-3">
-        </figure>
-      </div>
-    </section>
+        </section>
 
-    <!-- System requirements -->
-    <section class="section panel">
-      <div class="kicker">Systemkrav</div>
-      <h2>Windows PC</h2>
-      <div class="sys">
-        <div class="row">
-          <div class="note">OS</div>
-          <div>Windows 11 (64-bit) (Kan möjligtvis funka på Windows 10, men inte säkert)</div>
-        </div>
-        <div class="row">
-          <div class="note">Minne</div>
-          <div>8 GB RAM (rekommenderat 12 GB)</div>
-        </div>
-        <div class="row">
-          <div class="note">Lagring</div>
-          <div>5 GB ledigt utrymme</div>
-        </div>
-        <div class="row">
-          <div class="note">Input</div>
-          <div>Tangentbord/mus</div>
-        </div>
-      </div>
-      <div class="note" style="margin-top:10px">Specifikationerna kan uppdateras i takt med att spelet utvecklas.</div>
-    </section>
 
-    <!-- FAQ -->
-    <section class="section panel">
-      <div class="kicker"></div>
-      <h2>Information</h2>
-      <div class="list">
-        <div>
-          <h3>Hur levereras spelet efter betalning?</h3>
-          <div class="note">Du kommer ladda ner spelet direkt efter betalning. Instruktioner för nedladdning/aktivering följer där.</div>
-        </div>
-        <div>
-          <h3>Kommer det komma uppdateringar?</h3>
-          <div class="note">Ja. Uppdateringar med förbättringar och nytt innehåll kommer komma.</div>
-        </div>
-        <div>
-          <h3>Refund-policy?</h3>
-          <div class="note">Kontakta oss med ditt order-ID om något blir fel. Om produkten inte har några problem och funkar som den ska får man ingen återbetalning via 2 kapitlet 11§ Distansavtalslagen (2005:59)</div>
-        </div>
-      </div>
-    </section>
+        <!-- EDITIONS -->
 
-    <!-- Call to action -->
-    <section class="section panel">
-      <h2>Redo att köra?</h2>
-      <div class="note">Gå till betalning för att säkra din kopia av Island Of Vehicles.</div>
-      <div style="margin-top:12px">
-        <!-- Pay Button (oförändrad) -->
-        <div>
-          <style>
-            .pp-Q7PYPDX47Y2SJ{
-              text-align:center;border:none;border-radius:0.25rem;min-width:11.625rem;padding:0 2rem;height:2.625rem;font-weight:bold;background-color:#FFD140;color:#000000;font-family:"Helvetica Neue",Arial,sans-serif;font-size:1rem;line-height:1.25rem;cursor:pointer;
-            }
-          </style>
-          <form action="https://www.paypal.com/ncp/payment/Q7PYPDX47Y2SJ" method="post" target="_blank" style="display:inline-grid;justify-items:center;align-content:start;gap:0.5rem;">
-            <input class="pp-Q7PYPDX47Y2SJ" type="submit" value="Betala nu" />
-            <img src="https://www.paypalobjects.com/images/Debit_Credit_APM.svg" alt="cards" />
-            <section style="font-size: 0.75rem;">
-              Tillhandahålls av
-              <img src="https://www.paypalobjects.com/paypal-ui/logos/svg/paypal-wordmark-color.svg" alt="paypal" style="height:0.875rem;vertical-align:middle;"/>
-            </section>
-          </form>
-        </div>
-      </div>
-    </section>
+        <section class="editions" id="editions">
 
-    <!-- Footer -->
+            <div class="section-inner">
+
+                <div class="section-header">
+
+                    <div class="section-label">
+                        Utgåvor
+                    </div>
+
+                    <h2>Välj din version.</h2>
+
+                    <p>
+                        Island Of Vehicles 2 finns i tre olika utgåvor.
+                    </p>
+
+                </div>
+
+
+                <div class="edition-grid">
+
+
+                    <!-- STANDARD -->
+
+                    <article class="edition-card">
+
+                        <div>
+
+                            <div class="edition-tag">
+                                Standard
+                            </div>
+
+                            <h3>
+                                Standard Edition
+                            </h3>
+
+                            <p class="edition-description">
+                                Den klassiska utgåvan av
+                                Island Of Vehicles 2.
+                            </p>
+
+                        </div>
+
+                        <a href="#" class="button button-secondary edition-button">
+                            Standard Edition
+                        </a>
+
+                    </article>
+
+
+                    <!-- ULTIMATE -->
+
+                    <article class="edition-card featured">
+
+                        <div>
+
+                            <div class="edition-tag">
+                                Ultimate
+                            </div>
+
+                            <h3>
+                                Ultimate Edition
+                            </h3>
+
+                            <p class="edition-description">
+                                Den utökade utgåvan av
+                                Island Of Vehicles 2.
+                            </p>
+
+                        </div>
+
+                        <a href="#" class="button button-primary edition-button">
+                            Ultimate Edition
+                        </a>
+
+                    </article>
+
+
+                    <!-- COLLECTOR'S -->
+
+                    <article class="edition-card">
+
+                        <div>
+
+                            <div class="edition-tag">
+                                Collector's
+                            </div>
+
+                            <h3>
+                                Collector's Edition
+                            </h3>
+
+                            <p class="edition-description">
+                                En exklusiv samlarutgåva av
+                                Island Of Vehicles 2.
+                            </p>
+
+                        </div>
+
+                        <a href="#" class="button button-secondary edition-button">
+                            Collector's Edition
+                        </a>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- INFORMATION -->
+
+        <section class="information" id="information">
+
+            <div class="section-inner">
+
+                <div class="section-header">
+
+                    <div class="section-label">
+                        Om spelet
+                    </div>
+
+                    <h2>Bygg din egen resa.</h2>
+
+                    <p>
+                        Island Of Vehicles 2 är byggt kring frihet,
+                        fordon och en värld som är skapad för att utforskas.
+                    </p>
+
+                </div>
+
+
+                <div class="info-grid">
+
+                    <div class="info-card">
+
+                        <div class="info-icon">
+                            🚗
+                        </div>
+
+                        <h3>Fordon</h3>
+
+                        <p>
+                            Upptäck en stor mängd fordon och hitta ditt
+                            favoritfordon.
+                        </p>
+
+                    </div>
+
+
+                    <div class="info-card">
+
+                        <div class="info-icon">
+                            🌎
+                        </div>
+
+                        <h3>En stor värld</h3>
+
+                        <p>
+                            Utforska städer, vägar, landskap och platser
+                            medan du skapar din egen resa.
+                        </p>
+
+                    </div>
+
+
+                    <div class="info-card">
+
+                        <div class="info-icon">
+                            🛣️
+                        </div>
+
+                        <h3>Frihet</h3>
+
+                        <p>
+                            Det finns ingen enda väg att spela.
+                            Kör dit du vill.
+                        </p>
+
+                    </div>
+
+
+                    <div class="info-card">
+
+                        <div class="info-icon">
+                            🌐
+                        </div>
+
+                        <h3>Online</h3>
+
+                        <p>
+                            Spela tillsammans online och upplev världen
+                            tillsammans med andra spelare.
+                        </p>
+
+                    </div>
+
+
+                    <div class="info-card">
+
+                        <div class="info-icon">
+                            🔄
+                        </div>
+
+                        <h3>Uppdateras över tid</h3>
+
+                        <p>
+                            Island Of Vehicles 2 kommer att fortsätta
+                            utvecklas med nya uppdateringar.
+                        </p>
+
+                    </div>
+
+
+                    <div class="info-card">
+
+                        <div class="info-icon">
+                            🏝️
+                        </div>
+
+                        <h3>Island Of Vehicles</h3>
+
+                        <p>
+                            Nästa kapitel i Island Of Vehicles-serien.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- RELEASE -->
+
+        <section class="release" id="release">
+
+            <div class="section-inner">
+
+                <div class="release-box">
+
+                    <div class="small">
+                        Lanseringsdatum
+                    </div>
+
+                    <h2>
+                        11 DECEMBER 2027
+                    </h2>
+
+                    <p>
+                        Island Of Vehicles 2 kommer till spelare
+                        den 11 december 2027.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
     <footer>
-      <div class="grid-2">
-        <div>
-          <div class="small">© <span id="y"></span> Windskore. Alla rättigheter reserverade.</div>
-          <div class="small"></div>
+
+        <div class="footer-inner">
+
+            <div>
+
+                <div class="footer-brand">
+                    WINDSKORE <span>© 2026</span>
+                </div>
+
+                <div class="copyright">
+                    Island Of Vehicles 2 är ett spel från Windskore.
+                </div>
+
+            </div>
+
+            <div class="footer-links">
+
+                <a href="#game">
+                    Spelet
+                </a>
+
+                <a href="#editions">
+                    Utgåvor
+                </a>
+
+                <a href="#information">
+                    Information
+                </a>
+
+                <a href="#release">
+                    Lansering
+                </a>
+
+            </div>
+
         </div>
-        <div class="small" style="text-align:right">
-          <a href="#!" aria-label="Användarvillkor">Villkor</a> ·
-          <a href="#!" aria-label="Integritetspolicy">Integritet</a> ·
-          <a href="#!" aria-label="Kontakt">Kontakt</a>
-        </div>
-      </div>
+
     </footer>
-  </div>
-  <script>
-    // Set current year
-    document.getElementById('y').textContent = new Date().getFullYear();
-  </script>
-<!--Start of Tawk.to Script-->
-<script type="text/javascript">
-var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-(function(){
-var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-s1.async=true;
-s1.src='https://embed.tawk.to/6800b82fc5e333190b5b7845/1ip1cuv4g';
-s1.charset='UTF-8';
-s1.setAttribute('crossorigin','*');
-s0.parentNode.insertBefore(s1,s0);
-})();
-</script>
-<!--End of Tawk.to Script-->
+
+
+    <script>
+
+        document.querySelectorAll('a[href^="#"]').forEach(link => {
+
+            link.addEventListener("click", function(event) {
+
+                const target = document.querySelector(
+                    this.getAttribute("href")
+                );
+
+                if (!target) return;
+
+                event.preventDefault();
+
+                target.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+
+            });
+
+        });
+
+
+        document.querySelectorAll(".edition-button").forEach(button => {
+
+            button.addEventListener("click", function(event) {
+
+                event.preventDefault();
+
+                const originalText = this.textContent;
+
+                this.textContent = "Kommer snart";
+
+                setTimeout(() => {
+                    this.textContent = originalText;
+                }, 1800);
+
+            });
+
+        });
+
+    </script>
+
 </body>
 </html>
-
-
+```
