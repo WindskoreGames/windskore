@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b1120">
+  <meta name="description" content="Contact Windskore through our live chat. Check our support hours and get help with your questions.">
+  <title>Live Chat | Windskore</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #0b1120;
+      --panel: #111b2d;
+      --text: #f4f7fb;
+      --muted: #aab7ca;
+      --accent: #87cefa;
+      --border: rgba(255,255,255,.11);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; min-height: 100vh; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background: radial-gradient(ellipse at top, rgba(135,206,250,.20), transparent 48%), var(--bg);
+      display: flex; flex-direction: column;
+    }
+    header { width: 100%; border-bottom: 1px solid var(--border); background: rgba(11,17,32,.78); backdrop-filter: blur(14px); }
+    .nav { width: min(1120px, calc(100% - 40px)); margin: 0 auto; min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .brand { display: inline-flex; align-items: center; gap: 12px; color: var(--text); text-decoration: none; font-size: 1.2rem; font-weight: 800; letter-spacing: .02em; }
+    .brand-mark { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 12px; color: #07111f; background: linear-gradient(135deg, #c6e9ff, var(--accent)); font-weight: 900; }
+    .nav-link { color: var(--muted); text-decoration: none; font-size: .95rem; transition: color .2s ease; }
+    .nav-link:hover { color: var(--accent); }
+    main { width: min(920px, calc(100% - 32px)); margin: 0 auto; padding: 54px 0 64px; flex: 1; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 8px; color: var(--accent); background: rgba(135,206,250,.10); border: 1px solid rgba(135,206,250,.28); border-radius: 999px; padding: 7px 12px; font-size: .83rem; font-weight: 650; }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: #61d7a0; box-shadow: 0 0 0 4px rgba(97,215,160,.12); }
+    h1 { margin: 18px 0 12px; font-size: clamp(2.2rem, 6vw, 3.7rem); line-height: 1.05; letter-spacing: -.045em; }
+    .intro { max-width: 680px; color: var(--muted); font-size: 1.08rem; line-height: 1.7; margin: 0; }
+    .hours { margin: 30px 0 24px; display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .hours-card { background: linear-gradient(145deg, rgba(24,37,58,.96), rgba(17,27,45,.96)); border: 1px solid var(--border); border-radius: 18px; padding: 20px; transition: border-color .2s ease, transform .2s ease; }
+    .hours-card:hover { border-color: rgba(135,206,250,.42); transform: translateY(-2px); }
+    .hours-card h2 { margin: 0 0 8px; font-size: 1rem; }
+    .time { color: var(--accent); font-size: 1.55rem; font-weight: 800; letter-spacing: -.03em; margin-bottom: 8px; }
+    .hours-card p { color: var(--muted); margin: 0; font-size: .94rem; line-height: 1.55; }
+    .chat-panel { overflow: hidden; border: 1px solid var(--border); border-radius: 22px; background: var(--panel); box-shadow: 0 22px 70px rgba(0,0,0,.25); }
+    .chat-heading { padding: 20px 22px; display: flex; align-items: center; justify-content: space-between; gap: 16px; border-bottom: 1px solid var(--border); }
+    .chat-heading h2 { margin: 0 0 5px; font-size: 1.1rem; }
+    .chat-heading p { margin: 0; color: var(--muted); font-size: .9rem; }
+    .secure-label { color: var(--accent); font-size: .82rem; white-space: nowrap; }
+    .chat-frame { height: 590px; min-height: 420px; background: #f8fafc; }
+    .chat-frame iframe { display: block; width: 100%; height: 100%; border: 0; }
+    footer { border-top: 1px solid var(--border); padding: 22px 16px; color: #8493aa; text-align: center; font-size: .88rem; }
+    @media (max-width: 620px) {
+      .nav { width: calc(100% - 28px); min-height: 66px; }
+      main { padding-top: 36px; }
+      .hours { grid-template-columns: 1fr; }
+      .chat-heading { align-items: flex-start; flex-direction: column; }
+      .chat-frame { height: 560px; min-height: 400px; }
+      .secure-label { white-space: normal; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="nav" aria-label="Main navigation">
+      <a class="brand" href="https://windskore.se/" aria-label="Windskore homepage">
+        <span class="brand-mark" aria-hidden="true">W</span>
+        <span>Winds<span style="color:#87cefa">kore</span></span>
+      </a>
+      <a class="nav-link" href="https://windskore.se/">Back to Windskore.se ↗</a>
+    </nav>
+  </header>
+  <main>
+    <span class="eyebrow"><span class="dot" aria-hidden="true"></span> Windskore Support</span>
+    <h1>How can we help you?</h1>
+    <p class="intro">Send us a message through our live chat and we’ll help you find the right solution. Please check our support hours below before starting a chat.</p>
+    <section class="hours" aria-label="Support hours">
+      <article class="hours-card">
+        <h2>Technical Support &amp; System Requests</h2>
+        <div class="time">10:00–22:00</div>
+        <p>During these hours, you can request technical assistance, system changes, and help with other support-related issues.</p>
+      </article>
+      <article class="hours-card">
+        <h2>General Questions</h2>
+        <div class="time">22:00–10:00</div>
+        <p>During these hours, we answer questions only. Technical support and system changes are handled between 10:00 and 22:00.</p>
+      </article>
+    </section>
+    <section class="chat-panel" aria-labelledby="chat-title">
+      <div class="chat-heading">
+        <div>
+          <h2 id="chat-title">Chat with Windskore</h2>
+          <p>Start your conversation in the chat window below.</p>
+        </div>
+        <span class="secure-label">Hours are shown in Swedish local time</span>
+      </div>
+      <div class="chat-frame">
+        <iframe src="https://tawk.to/chat/6800b82fc5e333190b5b7845/1ip1cuv4g?layout=modern" title="Windskore live chat powered by tawk.to" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="clipboard-write"></iframe>
+      </div>
+    </section>
+  </main>
+  <footer>© <span id="year"></span> Windskore. All rights reserved.</footer>
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>
